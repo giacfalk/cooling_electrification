@@ -376,17 +376,22 @@ pop2030<-raster('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Inequ
 pop2030 <- aggregate(pop2030, fact=2, fun=sum, na.rm=TRUE)
 grid$pop2030 <- exact_extract(pop2030, grid, 'sum', progress=TRUE)
 
+# add ISO3
+gadm <- read_sf('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Inequal accessibility to services in sub-Saharan Africa/gadm_africa.shp')
+gadm <- dplyr::select(gadm, ISO3, geometry) %>% st_as_sf(.)
+grid <- st_join(st_as_sf(grid), gadm, join = st_intersects)
+
 #save the environment
 save.image(file="grid_with_pop.Rdata")
 
 # extract country of belonging and wealth distribution in each cell
-dhs_wealth <- read_sf("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Prod_Uses_Agriculture/PrElGen_database_SSA/statcompiler_subnational_data_2020-03-17/shapefiles/sdr_subnational_data_dhs_2015.shp")
+dhs_wealth <- read_sf("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/shapefiles/sdr_subnational_data_dhs_2015.shp")
 
 # how to cope with countries with lack of data? 
 
-dhs_wealth <- dplyr::select(dhs_wealth, ISO, geometry, HCWIXQPLOW, HCWIXQP2ND, HCWIXQPMID, HCWIXQP4TH, HCWIXQPHGH) %>% st_as_sf(.)
+dhs_wealth <- dplyr::select(dhs_wealth, geometry, HCWIXQPLOW, HCWIXQP2ND, HCWIXQPMID, HCWIXQP4TH, HCWIXQPHGH) %>% st_as_sf(.)
 
-colnames(dhs_wealth) <- c("ISO", "geometry", "n1", "n2", "n3", "n4", "n5")
+colnames(dhs_wealth) <- c("geometry", "n1", "n2", "n3", "n4", "n5")
 
 grid_2 <- st_join(grid, dhs_wealth, join = st_intersects)
 
@@ -397,63 +402,114 @@ grid_2$urbrur <- exact_extract(urbrur, grid_2, 'mode', progress=TRUE)
 grid_2$urban <- ifelse(grid_2$urbrur>13, 1, 0)
 grid_2$urban <- ifelse(grid_2$urbrur==-1, NA, grid_2$urban)
 
-# multinomial ML with urb/rur and traveltime to predict values
-traveltime <- raster('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Regulatory quality/Gridded sources/Traveltime/2015_accessibility_to_cities_v1.0.tif')
+# add traveltime to nearest city
+#traveltime <- raster('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Regulatory quality/Gridded sources/Traveltime/2015_accessibility_to_cities_v1.0.tif')
 
-grid_2$traveltime_city <- exact_extract(traveltime, grid_2, 'mean', progress=TRUE)
+#grid_2$traveltime_city <- exact_extract(traveltime, grid_2, 'mean', progress=TRUE)
+
+# predict wealth in countries with missing surveys
+# take average of urban/rural pixels in neighbouring countries
+
+# Sudan (SD)
+grid_2$n1 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==1, mean(grid_2$n1[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==1], na.rm=TRUE), grid_2$n1)
+grid_2$n1 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==0, mean(grid_2$n1[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==0], na.rm=TRUE), grid_2$n1)
+
+grid_2$n2 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==1, mean(grid_2$n2[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==1], na.rm=TRUE), grid_2$n2)
+grid_2$n2 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==0, mean(grid_2$n2[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==0], na.rm=TRUE), grid_2$n2)
+
+grid_2$n3 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==1, mean(grid_2$n3[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==1], na.rm=TRUE), grid_2$n3)
+grid_2$n3 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==0, mean(grid_2$n3[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==0], na.rm=TRUE), grid_2$n3)
+
+grid_2$n4 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==1, mean(grid_2$n4[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==1], na.rm=TRUE), grid_2$n4)
+grid_2$n4 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==0, mean(grid_2$n4[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==0], na.rm=TRUE), grid_2$n4)
+
+grid_2$n5 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==1, mean(grid_2$n5[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==1], na.rm=TRUE), grid_2$n5)
+grid_2$n5 = ifelse(grid_2$ISO3=="SDN" & grid_2$urban==0, mean(grid_2$n5[(grid_2$ISO3=="ERI" | grid_2$ISO3=="ETH" | grid_2$ISO3=="TCD") & grid_2$urban==0], na.rm=TRUE), grid_2$n5)
+
+# South Sudan (SS) -> ETH, UGA, CAF
+grid_2$n1 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==1, mean(grid_2$n1[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==1], na.rm=TRUE), grid_2$n1)
+grid_2$n1 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==0, mean(grid_2$n1[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==0], na.rm=TRUE), grid_2$n1)
+
+grid_2$n2 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==1, mean(grid_2$n2[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==1], na.rm=TRUE), grid_2$n2)
+grid_2$n2 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==0, mean(grid_2$n2[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==0], na.rm=TRUE), grid_2$n2)
+
+grid_2$n3 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==1, mean(grid_2$n3[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==1], na.rm=TRUE), grid_2$n3)
+grid_2$n3 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==0, mean(grid_2$n3[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==0], na.rm=TRUE), grid_2$n3)
+
+grid_2$n4 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==1, mean(grid_2$n4[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==1], na.rm=TRUE), grid_2$n4)
+grid_2$n4 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==0, mean(grid_2$n4[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==0], na.rm=TRUE), grid_2$n4)
+
+grid_2$n5 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==1, mean(grid_2$n5[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==1], na.rm=TRUE), grid_2$n5)
+grid_2$n5 = ifelse(grid_2$ISO3=="SSD" & grid_2$urban==0, mean(grid_2$n5[(grid_2$ISO3=="UGA" | grid_2$ISO3=="ETH" | grid_2$ISO3=="CAF") & grid_2$urban==0], na.rm=TRUE), grid_2$n5)
+
+
+# Botswana (BW) -> ZAF, NAM
+grid_2$n1 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==1, mean(grid_2$n1[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==1], na.rm=TRUE), grid_2$n1)
+grid_2$n1 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==0, mean(grid_2$n1[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==0], na.rm=TRUE), grid_2$n1)
+
+grid_2$n2 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==1, mean(grid_2$n2[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==1], na.rm=TRUE), grid_2$n2)
+grid_2$n2 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==0, mean(grid_2$n2[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==0], na.rm=TRUE), grid_2$n2)
+
+grid_2$n3 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==1, mean(grid_2$n3[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==1], na.rm=TRUE), grid_2$n3)
+grid_2$n3 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==0, mean(grid_2$n3[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==0], na.rm=TRUE), grid_2$n3)
+
+grid_2$n4 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==1, mean(grid_2$n4[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==1], na.rm=TRUE), grid_2$n4)
+grid_2$n4 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==0, mean(grid_2$n4[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==0], na.rm=TRUE), grid_2$n4)
+
+grid_2$n5 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==1, mean(grid_2$n5[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==1], na.rm=TRUE), grid_2$n5)
+grid_2$n5 = ifelse(grid_2$ISO3=="BWA" & grid_2$urban==0, mean(grid_2$n5[(grid_2$ISO3=="ZAF" | grid_2$ISO3=="NAM") & grid_2$urban==0], na.rm=TRUE), grid_2$n5)
+
+
+# Sierra Leone (SL) -> LIB, GIN
+grid_2$n1 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==1, mean(grid_2$n1[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n1)
+grid_2$n1 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==0, mean(grid_2$n1[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n1)
+
+grid_2$n2 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==1, mean(grid_2$n2[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n2)
+grid_2$n2 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==0, mean(grid_2$n2[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n2)
+
+grid_2$n3 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==1, mean(grid_2$n3[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n3)
+grid_2$n3 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==0, mean(grid_2$n3[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n3)
+
+grid_2$n4 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==1, mean(grid_2$n4[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n4)
+grid_2$n4 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==0, mean(grid_2$n4[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n4)
+
+grid_2$n5 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==1, mean(grid_2$n5[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n5)
+grid_2$n5 = ifelse(grid_2$ISO3=="SLE" & grid_2$urban==0, mean(grid_2$n5[(grid_2$ISO3=="LIB" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n5)
+
+# Guinea-Bissau (GW) -> GIN, SEN
+grid_2$n1 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==1, mean(grid_2$n1[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n1)
+grid_2$n1 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==0, mean(grid_2$n1[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n1)
+
+grid_2$n2 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==1, mean(grid_2$n2[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n2)
+grid_2$n2 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==0, mean(grid_2$n2[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n2)
+
+grid_2$n3 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==1, mean(grid_2$n3[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n3)
+grid_2$n3 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==0, mean(grid_2$n3[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n3)
+
+grid_2$n4 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==1, mean(grid_2$n4[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n4)
+grid_2$n4 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==0, mean(grid_2$n4[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n4)
+
+grid_2$n5 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==1, mean(grid_2$n5[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==1], na.rm=TRUE), grid_2$n5)
+grid_2$n5 = ifelse(grid_2$ISO3=="GNB" & grid_2$urban==0, mean(grid_2$n5[(grid_2$ISO3=="SEN" | grid_2$ISO3=="GIN") & grid_2$urban==0], na.rm=TRUE), grid_2$n5)
+
+
+# Equatorial Guinea -> GAB, CMR
+grid_2$n1 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==1, mean(grid_2$n1[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==1], na.rm=TRUE), grid_2$n1)
+grid_2$n1 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==0, mean(grid_2$n1[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==0], na.rm=TRUE), grid_2$n1)
+
+grid_2$n2 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==1, mean(grid_2$n2[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==1], na.rm=TRUE), grid_2$n2)
+grid_2$n2 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==0, mean(grid_2$n2[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==0], na.rm=TRUE), grid_2$n2)
+
+grid_2$n3 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==1, mean(grid_2$n3[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==1], na.rm=TRUE), grid_2$n3)
+grid_2$n3 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==0, mean(grid_2$n3[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==0], na.rm=TRUE), grid_2$n3)
+
+grid_2$n4 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==1, mean(grid_2$n4[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==1], na.rm=TRUE), grid_2$n4)
+grid_2$n4 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==0, mean(grid_2$n4[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==0], na.rm=TRUE), grid_2$n4)
+
+grid_2$n5 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==1, mean(grid_2$n5[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==1], na.rm=TRUE), grid_2$n5)
+grid_2$n5 = ifelse(grid_2$ISO3=="GNQ" & grid_2$urban==0, mean(grid_2$n5[(grid_2$ISO3=="GAB" | grid_2$ISO3=="CMR") & grid_2$urban==0], na.rm=TRUE), grid_2$n5)
 
 save.image(file="grid_bk.Rdata")
-
-# grid_2_reg = dplyr::select(grid_2, traveltime_city, urban, n1, n2, n3, n4, n5, pop2030) %>% as.data.frame()
-# grid_2_reg$geometry = NULL
-# grid_2_reg = grid_2_reg[complete.cases(grid_2_reg), ]
-# 
-# summary(lm(formula=cbind(n1, n2, n3, n4, n5)  ~ ., data=train.hex))
-# 
-# # Partition data
-# splitSample <- sample(1:2, size=nrow(grid_2_reg), prob=c(0.7,0.3), replace = TRUE)
-# train.hex <- grid_2_reg[splitSample==1,]
-# test.hex <- grid_2_reg[splitSample==2,]
-# 
-# rm(list=setdiff(ls(), c("train.hex", "test.hex")))
-# gc()
-# 
-# # Find a way to run this effectively
-# pr = rfsrc(Multivar(n1, n2, n3, n4, n5)~ . ,data = train.hex, importance=T)
-# 
-# prediction <- predict.rfsrc(pr, test.hex)
-# 
-# test.hex$n1_forecasted = prediction$regrOutput$n1$predicted
-# test.hex$n2_forecasted = prediction$regrOutput$n2$predicted
-# test.hex$n3_forecasted = prediction$regrOutput$n3$predicted
-# test.hex$n4_forecasted = prediction$regrOutput$n4$predicted
-# test.hex$n5_forecasted = prediction$regrOutput$n5$predicted
-# 
-# # R2 for test (= test accuracy)
-# formula<-"n1 ~ n1_forecasted"
-# ols1<-lm(formula,data=test.hex)
-# summary(ols1, robust=TRUE)  
-# formula<-"n2 ~ n2_forecasted"
-# ols1<-lm(formula,data=test.hex)
-# summary(ols1, robust=TRUE)  
-# formula<-"n3 ~ n3_forecasted"
-# ols1<-lm(formula,data=test.hex)
-# summary(ols1, robust=TRUE)  
-# formula<-"n4 ~ n4_forecasted"
-# ols1<-lm(formula,data=test.hex)
-# summary(ols1, robust=TRUE)  
-# formula<-"n5 ~ n5_forecasted"
-# ols1<-lm(formula,data=test.hex)
-# summary(ols1, robust=TRUE)  
-# 
-# # use predicted values for obs where you have NA
-# 
-# grid_2$n1 = ifelse(is.na(grid_2$n1), prediction$regrOutput$n1$predicted, grid_2$n1)
-# grid_2$n2 = ifelse(is.na(grid_2$n2), prediction$regrOutput$n1$predicted, grid_2$n2)
-# grid_2$n3 = ifelse(is.na(grid_2$n3), prediction$regrOutput$n1$predicted, grid_2$n3)
-# grid_2$n4 = ifelse(is.na(grid_2$n4), prediction$regrOutput$n1$predicted, grid_2$n4)
-# grid_2$n5 = ifelse(is.na(grid_2$n5), prediction$regrOutput$n1$predicted, grid_2$n5)
-
 grid = grid_2
 
 # extract CDDs for 4.5 and 6 in each pixel
@@ -463,6 +519,8 @@ grid[,paste0("CDDs60_2050_", i)] <- exact_extract(raster_rcp_60[[i]], grid, 'mea
 }
 
 save.image(file="grid_bk2.Rdata")
+rm(list=setdiff(ls(), c("grid")))
+gc()
 
 # calculate average number of people in each household based on country and urban/rural
 hhsize <- readxl::read_xlsx("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/csvs/population_division_UN_Houseshold_Size_and_Composition_2019.xlsx", sheet="UN HH Size and Composition 2019")
@@ -473,8 +531,7 @@ hhsize$ISO = countrycode::countrycode(hhsize$`Country or area`, 'country.name', 
 
 hhsize = hhsize %>% dplyr::select(ISO, `Average household size (number of members)`)
 
-isos_ssa = unique(dhs_wealth$ISO)
-isos_ssa = countrycode::countrycode(isos_ssa, 'iso2c', 'iso3c')
+isos_ssa = unique(grid$ISO3)
 
 diff <-setdiff(isos_ssa, hhsize$ISO)
 
@@ -492,9 +549,9 @@ hhsize = hhsize[hhsize$ISO %in% isos_ssa, ]
 
 hhsize$`Average household size (number of members)` <- ifelse(is.na(hhsize$`Average household size (number of members)`), mean(hhsize$`Average household size (number of members)`, na.rm=TRUE), hhsize$`Average household size (number of members)`)
 
-hhsize$ISO = countrycode::countrycode(isos_ssa, 'iso3c', 'iso2c')
+grid = merge(grid, hhsize, by.x="ISO3", by.y="ISO")
 
-grid = merge(grid, hhsize, by.x="ISO", by.y="ISO")
+grid$`Average household size (number of members)` = ifelse(grid$urban==1, grid$`Average household size (number of members)`*0.75, grid$`Average household size (number of members)`*1.25)
 
 grid$hhs = grid$pop2030/grid$`Average household size (number of members)`
 
@@ -502,6 +559,9 @@ grid$hhs = grid$pop2030/grid$`Average household size (number of members)`
 save.image(file="processed_CDDs_drivers.Rdata")
 rm(list=setdiff(ls(), c("grid")))
 gc()
+
+# Michel: Load Rdata file here #
+
 
 #########
 # Simulate penetration of technologies based on CDDs, wealth, and urb/rur
