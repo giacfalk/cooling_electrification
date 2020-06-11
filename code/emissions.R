@@ -54,21 +54,24 @@ power2$ef = power2$ef * 100
 countries = merge(world, power2, by.x="GID_0", by.y="ISO3", all.x=T)
 countries$ef = ifelse(is.na(countries$Value), countries$ef, countries$Value)
 countries$co2= countries$ef * countries$kwh
-countries$co2 = ifelse(countries$noacc18<100000, NA, countries$co2)
+#countries$co2 = ifelse(countries$noacc18<100000, NA, countries$co2)
 
 # Print results
 countries_without = countries
 countries_without$geometry=NULL
-countries_without %>% group_by(scenario) %>% summarise(co2 = sum(co2, na.rm = T)/1000000000000)
+countries_without %>% group_by(scenario, id) %>% summarise(co2 = sum(co2, na.rm = T)/1000000000000)
+
+world_plot = countries %>% group_by(id, scenario, continent) %>% mutate(co2=sum(co2, na.rm = T))
 
 # Plot results
 co2_region = ggplot() +
   theme_classic()+
-  geom_bar(data = countries[which(countries$co2>0),], aes(x = continent , y = co2/1000000000000, fill=scenario, group=scenario), stat="sum", position="dodge", show.legend=c(size=FALSE)) +
+  geom_bar(data = world_plot[which(world_plot$co2>0),], aes(x = continent , y = co2/1000000000000, fill=id), stat="sum", position = "dodge", show.legend=c(size=FALSE)) +
   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
   scale_fill_brewer(name="Scenario", palette = "Set1")+
   ylab("Potential emissions for air cooling \nfrom households without electricty")+
   xlab("Region")+
-  ggtitle("Yearly CO2 emissions (Mt CO2)")
+  ggtitle("Yearly CO2 emissions (Mt CO2)")+
+  facet_wrap(~ scenario, ncol=2)
 
-ggsave("co2_region.png", co2_region, device="png")
+ggsave(paste0("co2_region_", base_temp, ".png"), co2_region, device="png")

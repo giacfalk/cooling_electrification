@@ -70,17 +70,28 @@ HHs_raster = noacc18/hhsize_raster
 
 crs(CDDs) = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
-mean_CDDs <- calc(overlay_current, fun = mean, na.rm = T)
+# loop over the three climate scenarios
 
-hoursheatday_im <- (overlay_current/mean_CDDs)*6
+scenarios <- c(overlay_current, overlay_245, overlay_370)
+
+all_results=list()
+k=1 
+
+for (scenario_climate in scenarios){
+
+urbrur<-raster("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/urbrur.tif")
+
+mean_CDDs <- calc(scenario_climate, fun = mean, na.rm = T)
+
+hoursheatday_im <- (scenario_climate/mean_CDDs)*6
 
 hoursheatday_im <- stack(hoursheatday_im)
-hoursheatday_im = projectRaster(hoursheatday_im, overlay_current)
+hoursheatday_im = projectRaster(hoursheatday_im, scenario_climate)
 hoursheatday_im = stack(hoursheatday_im)
 values(hoursheatday_im) = ifelse(values(hoursheatday_im)>12, 12, values(hoursheatday_im))
 values(hoursheatday_im) = ifelse(values(hoursheatday_im)<0, 0, values(hoursheatday_im))
 
-DeltaT_im = overlay_current
+DeltaT_im = scenario_climate
 DeltaT_im = stack(DeltaT_im)
 
 Q_im = list()
@@ -141,9 +152,9 @@ sum(values(ACconsumption_i), na.rm = T)/1000000000
 
 ###
 
-mean_CDDs <- calc(overlay_current, fun = sum, na.rm = T)
+mean_CDDs <- calc(scenario_climate, fun = sum, na.rm = T)
 
-hoursfanuse_im <- (overlay_current/mean_CDDs)* (max_hrs_permonth_fan_use - min_hrs_permonth_fan_use) + min_hrs_permonth_fan_use
+hoursfanuse_im <- (scenario_climate/mean_CDDs)* (max_hrs_permonth_fan_use - min_hrs_permonth_fan_use) + min_hrs_permonth_fan_use
 
 FANconsumption_im_hh = Fan_power*hoursfanuse_im/1000
 
@@ -181,13 +192,14 @@ pop_rural<-overlay(noacc18, urbrur, fun=function(x,y){
   return(x)
 })
 
-# # Scenario 1: AC to urban households and households above 50% in rural
-AC_demanding_pop_S1 <- merge(pop_urban/hhsize_raster, pop_rural/hhsize_raster*0.5)
+# # Scenario 1: AC to urban households and households 50% in rural
+AC_demanding_pop_S1 <- merge(pop_urban/hhsize_raster, (pop_rural/hhsize_raster)*0.5)
 FAN_demanding_pop_S1 <- noacc18/hhsize_raster - AC_demanding_pop_S1
 AC_demanding_share_S1 <- AC_demanding_pop_S1 / (AC_demanding_pop_S1 + FAN_demanding_pop_S1)
 FAN_demanding_share_S1 <- FAN_demanding_pop_S1 / (AC_demanding_pop_S1 + FAN_demanding_pop_S1)
 kwh_S1 = FANconsumption_i * FAN_demanding_share_S1 + ACconsumption_i * AC_demanding_share_S1
 world$kwh_S1 = exact_extract(kwh_S1, world, 'sum')
+
 # # Scenario 2: AC to urban households and households above 80% in rural
 AC_demanding_pop_S2 <- merge(pop_urban/hhsize_raster, pop_rural/hhsize_raster*0.2)
 FAN_demanding_pop_S2 <- noacc18/hhsize_raster - AC_demanding_pop_S2
@@ -195,6 +207,7 @@ AC_demanding_share_S2 <- AC_demanding_pop_S2 / (AC_demanding_pop_S2 + FAN_demand
 FAN_demanding_share_S2 <- FAN_demanding_pop_S2 / (AC_demanding_pop_S2 + FAN_demanding_pop_S2)
 kwh_S2 = FANconsumption_i * FAN_demanding_share_S2 + ACconsumption_i * AC_demanding_share_S2
 world$kwh_S2 = exact_extract(kwh_S2, world, 'sum')
+
 # # Scenario 3: AC to households above 40% in urban and 80% in rural
 AC_demanding_pop_S3 <- merge(pop_urban/hhsize_raster*0.6, pop_rural/hhsize_raster*0.2)
 FAN_demanding_pop_S3 <- noacc18/hhsize_raster - AC_demanding_pop_S3
@@ -212,31 +225,47 @@ kwh_S4 = FANconsumption_i * FAN_demanding_share_S4 + ACconsumption_i * AC_demand
 world$kwh_S4 = exact_extract(kwh_S4, world, 'sum')
 
 # melt by scenario
-world = gather(world, "scenario", "kwh", contains("kwh_S"))
+world_out = gather(world, "scenario", "kwh", kwh_S1, kwh_S2, kwh_S3, kwh_S4)
+
+world_out$geometry=NULL
+
+all_results[[k]] = world_out
+k = k+1
+gc()
+}
+
+world = rbindlist(all_results, idcol = T)
+world$id = world$.id
+world$id = ifelse(world$id==1, "Baseline", ifelse(world$id==2, "RCP245", "RCP370"))
+
+world = subset(world, world$kwh!=0)
+
+world_plot = world %>% group_by(id, scenario, continent) %>% mutate(kwh=sum(kwh, na.rm = T))
 
 # plot
 kwh_country = ggplot() +
   theme_classic()+
-  geom_bar(data = world[which(world$kwh>0),], aes(x = continent , y = kwh/1000000, group=scenario, fill=scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
+  geom_bar(data = world_plot, aes(x = continent , y = kwh/1000000000, fill=id), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
   scale_fill_brewer(name="Scenario", palette = "Set1")+
   ylab("Latent power demand for air cooling \nfrom households without electricty")+
   xlab("Region")+
-  ggtitle("Yearly electricity consumption (GWh)")
-
-#ggsave("kwh_region.png", kwh_country, device="png")
-
-world$noacc18 = exact_extract(noacc18, world, 'sum')
-world$kwhcapita = world$kwh/world$noacc18
-
-kwh_map = ggplot() +
-  theme_classic()+
-  geom_sf(data = world, aes(fill = kwh/noacc18)) +
-  theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
-  scale_fill_viridis_b(name = "kWh/person without electricity access", trans="log")+
-  #ggtitle("")+
-  ylab("Latitude")+
-  xlab("Longitude")+
+  ggtitle("Yearly electricity consumption (TWh)")+
   facet_wrap(~ scenario, ncol=2)
+
+ggsave(paste0("kwh_region_", base_temp, ".png"), kwh_country, device="png")
+
+# world$noacc18 = exact_extract(noacc18, world, 'sum')
+# world$kwhcapita = world$kwh/world$noacc18
+# 
+# kwh_map = ggplot() +
+#   theme_classic()+
+#   geom_sf(data = world, aes(fill = kwh/noacc18)) +
+#   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
+#   scale_fill_viridis_b(name = "kWh/person without electricity access", trans="log")+
+#   #ggtitle("")+
+#   ylab("Latitude")+
+#   xlab("Longitude")+
+#   facet_wrap(~ scenario, ncol=2)
 
 #ggsave("kwh_map.png", kwh_map, device="png")

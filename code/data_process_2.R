@@ -193,9 +193,8 @@ colnames(all_245) <- c("id", "month", "avg", "max", "min")
 colnames(all_370) <- c("id", "month", "avg", "max", "min")
 #
 #calculate CDDs
-base_temp = 26
-#
-all_245$CDD_245 = 30 * ifelse(all_245$max<=base_temp, 0, ifelse( (all_245$avg<=base_temp) & (base_temp<all_245$max), (all_245$max-base_temp)/4, ifelse((all_245$min<=base_temp) & (base_temp<all_245$avg), ((all_245$max-base_temp)/2 - (base_temp-all_245$min)/4), all_245$avg-base_temp)))YlOrRdTheme
+
+all_245$CDD_245 = 30 * ifelse(all_245$max<=base_temp, 0, ifelse( (all_245$avg<=base_temp) & (base_temp<all_245$max), (all_245$max-base_temp)/4, ifelse((all_245$min<=base_temp) & (base_temp<all_245$avg), ((all_245$max-base_temp)/2 - (base_temp-all_245$min)/4), all_245$avg-base_temp)))
 #
 all_370$CDD_370 = 30 * ifelse(all_370$max<=base_temp, 0, ifelse( (all_370$avg<=base_temp) & (base_temp<all_370$max), (all_370$max-base_temp)/4, ifelse((all_370$min<=base_temp) & (base_temp<all_370$avg), ((all_370$max-base_temp)/2 - (base_temp-all_370$min)/4), all_370$avg-base_temp)))
 #
@@ -222,7 +221,7 @@ for (i in 1:12){
 CDDs_245 <- stack(CDDs_245)
 #
 setwd('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA')
-writeRaster(CDDs_245, "CDDs_2040_2060_245_global.tif")
+writeRaster(CDDs_245, "CDDs_2040_2060_245_global.tif", overwrite=T)
 #
 #
 #
@@ -243,7 +242,7 @@ for (i in 1:12){
 CDDs_370 <- stack(CDDs_370)
 #
 setwd('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA')
-writeRaster(CDDs_370, "CDDs_2040_2060_370_global.tif")
+writeRaster(CDDs_370, "CDDs_2040_2060_370_global.tif", overwrite=T)
 
 CDDs_370 <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_370_global.tif')
 CDDs_245 <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_245_global.tif')
