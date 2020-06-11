@@ -1,0 +1,2785 @@
+﻿Country,TWh
+electricity net generation (billion kWh),
+    World,24343.64939
+        Afghanistan,1.254
+        Albania,4.481
+        Algeria,71.483
+        American Samoa,0.167
+        Angola,10.676
+        Antarctica,0
+        Antigua and Barbuda,0.331
+        Argentina,138.359
+        Armenia,7.362
+        Aruba,0.921
+        Australia,244.543
+        Austria,62.4021
+        Azerbaijan,22.961
+        Bahrain,27.48
+        Bangladesh,68.84
+        Barbados,1.03
+        Belarus,32.487
+        Belgium,80.887
+        Belize,0.409
+        Benin,0.311
+        Bermuda,0.622
+        Bhutan,7.65202
+        Bolivia,9.499
+        Bosnia and Herzegovina,15.689
+        Botswana,2.841
+        Brazil,577.943
+        British Virgin Islands,0.1913
+        Brunei,3.908
+        Bulgaria,42.53
+        Burkina Faso,1.116
+        Burma,21.792
+        Burundi,0.22
+        Cabo Verde,0.448
+        Cambodia,6.7193
+        Cameroon,8.322
+        Canada,640.522
+        Cayman Islands,0.668
+        Central African Republic,0.1514
+        Chad,0.2293
+        Chile,76.242
+        China,6266.235
+        Colombia,73.355
+        Comoros,0.0404
+        Congo-Brazzaville,3.3
+        Congo-Kinshasa,9.425
+        Cook Islands,0.037
+        Costa Rica,11.219
+        Croatia,11.362
+        Cuba,19.37
+        Cyprus,4.73
+        Czech Republic,81.023
+        Côte d’Ivoire,9.733
+        Denmark,30.537
+        Djibouti,0.3805
+        Dominica,0.0834
+        Dominican Republic,18.045
+        Ecuador,28.604
+        Egypt,182.343
+        El Salvador,5.291
+        Equatorial Guinea,1.725
+        Eritrea,0.4
+        Estonia,12.255
+        Eswatini,0.569
+        Ethiopia,13.7411
+        Falkland Islands,0.017
+        Faroe Islands,0.324
+        Fiji,1.021
+        Finland,65.408
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,534.116
+        French Guiana,1.12
+        French Polynesia,0.6103
+        Gabon,2.191
+"        Gambia, The",0.3031
+        Georgia,11.305
+        Germany,618.316
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,13.526
+        Gibraltar,0.258
+        Greece,52.672
+        Greenland,0.506
+        Grenada,0.214
+        Guadeloupe,1.649
+        Guam,1.757
+        Guatemala,12.523
+        Guinea,1.632
+        Guinea-Bissau,0.036
+        Guyana,1.0421
+        Haiti,0.962
+        Hawaiian Trade Zone,--
+        Honduras,8.963
+        Hong Kong,34.813
+        Hungary,31.178
+        Iceland,18.846
+        India,1438.168
+        Indonesia,241.326
+        Iran,289.564
+        Iraq,82.254
+        Ireland,29.168
+        Israel,63.4888
+        Italy,280.668
+        Jamaica,4.159
+        Japan,986.807
+        Jordan,19.599
+        Kazakhstan,97.575
+        Kenya,10.112
+        Kiribati,0.03
+        Kosovo,5.576
+        Kuwait,68.439
+        Kyrgyzstan,15.293
+        Laos,27.881
+        Latvia,7.3804
+        Lebanon,19.05
+        Lesotho,0.5
+        Liberia,0.4
+        Libya,34.59
+        Lithuania,3.08
+        Luxembourg,0.383
+        Macau,1.377
+        Madagascar,1.692
+        Malawi,2.045
+        Malaysia,156.031
+        Maldives,0.424
+        Mali,2.59
+        Malta,1.5564
+        Martinique,1.456
+        Mauritania,1.176
+        Mauritius,3.007
+        Mexico,305.103
+        Micronesia,
+        Moldova,4.683
+        Mongolia,5.69
+        Montenegro,2.391
+        Montserrat,0.025
+        Morocco,29.768
+        Mozambique,16.737
+        Namibia,1.644
+        Nauru,0.025
+        Nepal,4.668
+        Netherlands,111.443
+        Netherlands Antilles,1.198
+        New Caledonia,3.035
+        New Zealand,42.994
+        Nicaragua,4.424
+        Niger,0.519
+        Nigeria,30.62
+        Niue,0.003
+        North Korea,16.061
+        North Macedonia,5.331
+        Northern Mariana Islands,NA
+        Norway,146.544
+        Oman,33.958
+        Pakistan,126.052
+        Palestinian Territories,0.472
+        Panama,10.79
+        Papua New Guinea,3.931
+        Paraguay,59.228
+        Peru,51.339
+        Philippines,90.002
+        Poland,160.604
+        Portugal,54.853
+        Puerto Rico,16.691
+        Qatar,42.945
+        Reunion,3.145
+        Romania,61.072
+        Russia,1034.436
+        Rwanda,0.677
+        Saint Helena,0.007
+        Saint Kitts and Nevis,0.198
+        Saint Lucia,0.377
+        Saint Pierre and Miquelon,0.046
+        Saint Vincent/Grenadines,0.118
+        Samoa,0.1322
+        Sao Tome and Principe,0.087
+        Saudi Arabia,326.994
+        Senegal,4.475
+        Serbia,34.386
+        Seychelles,0.4
+        Sierra Leone,0.209
+        Singapore,49.341
+        Slovakia,25.885
+        Slovenia,15.27
+        Solomon Islands,0.107
+        Somalia,0.347
+        South Africa,236.373
+        South Korea,530.551
+        South Sudan,0.51
+        Spain,259.918
+        Sri Lanka,15.091
+        Sudan,15.214
+        Suriname,1.821
+        Sweden,160.982
+        Switzerland,57.761
+        Syria,17.207
+        Taiwan,249.528
+        Tajikistan,17.884
+        Tanzania,7.62
+        Thailand,177.097
+        The Bahamas,1.747
+        Timor-Leste,0
+        Togo,0.233
+        Tonga,0.052
+        Trinidad and Tobago,10.371
+        Tunisia,19.172
+        Turkey,283.086
+        Turkmenistan,21.185
+        Turks and Caicos Islands,0.24
+        Tuvalu,
+        U.S. Pacific Islands,0.562
+        U.S. Territories,
+        U.S. Virgin Islands,0.53
+        Uganda,3.933
+        Ukraine,145.681
+        United Arab Emirates,126.532
+        United Kingdom,318.262
+        United States,4058.261173
+        Uruguay,13.546
+        Uzbekistan,58.507
+        Vanuatu,0.0591
+        Venezuela,103.866
+        Vietnam,173.299
+        Wake Island,0
+        Western Sahara,0
+        Yemen,4.503
+        Zambia,14.028
+        Zimbabwe,7.31
+nuclear electricity net generation (billion kWh),
+    World,2484.454
+        Afghanistan,0
+        Albania,0
+        Algeria,0
+        American Samoa,0
+        Angola,0
+        Antarctica,0
+        Antigua and Barbuda,0
+        Argentina,5.716
+        Armenia,2.411
+        Aruba,0
+        Australia,0
+        Austria,0
+        Azerbaijan,0
+        Bahrain,0
+        Bangladesh,0
+        Barbados,0
+        Belarus,0
+        Belgium,40.187
+        Belize,0
+        Benin,0
+        Bermuda,0
+        Bhutan,0
+        Bolivia,0
+        Bosnia and Herzegovina,0
+        Botswana,0
+        Brazil,14.854
+        British Virgin Islands,0
+        Brunei,0
+        Bulgaria,14.872
+        Burkina Faso,0
+        Burma,0
+        Burundi,0
+        Cabo Verde,0
+        Cambodia,0
+        Cameroon,0
+        Canada,95.131
+        Cayman Islands,0
+        Central African Republic,0
+        Chad,0
+        Chile,0
+        China,232.797
+        Colombia,0
+        Comoros,0
+        Congo-Brazzaville,0
+        Congo-Kinshasa,0
+        Cook Islands,0
+        Costa Rica,0
+        Croatia,0
+        Cuba,0
+        Cyprus,0
+        Czech Republic,26.785
+        Côte d’Ivoire,0
+        Denmark,0
+        Djibouti,0
+        Dominica,0
+        Dominican Republic,0
+        Ecuador,0
+        Egypt,0
+        El Salvador,0
+        Equatorial Guinea,0
+        Eritrea,0
+        Estonia,0
+        Eswatini,0
+        Ethiopia,0
+        Falkland Islands,0
+        Faroe Islands,0
+        Fiji,0
+        Finland,21.574
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,381.846
+        French Guiana,0
+        French Polynesia,0
+        Gabon,0
+"        Gambia, The",0
+        Georgia,0
+        Germany,72.163
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0
+        Gibraltar,0
+        Greece,0
+        Greenland,0
+        Grenada,0
+        Guadeloupe,0
+        Guam,0
+        Guatemala,0
+        Guinea,0
+        Guinea-Bissau,0
+        Guyana,0
+        Haiti,0
+        Hawaiian Trade Zone,--
+        Honduras,0
+        Hong Kong,0
+        Hungary,15.219
+        Iceland,0
+        India,34.848
+        Indonesia,0
+        Iran,6.366
+        Iraq,0
+        Ireland,0
+        Israel,0
+        Italy,0
+        Jamaica,0
+        Japan,11.61
+        Jordan,0
+        Kazakhstan,0
+        Kenya,0
+        Kiribati,0
+        Kosovo,0
+        Kuwait,0
+        Kyrgyzstan,0
+        Laos,0
+        Latvia,0
+        Lebanon,0
+        Lesotho,0
+        Liberia,0
+        Libya,0
+        Lithuania,0
+        Luxembourg,0
+        Macau,0
+        Madagascar,0
+        Malawi,0
+        Malaysia,0
+        Maldives,0
+        Mali,0
+        Malta,0
+        Martinique,0
+        Mauritania,0
+        Mauritius,0
+        Mexico,10.572
+        Micronesia,
+        Moldova,0
+        Mongolia,0
+        Montenegro,0
+        Montserrat,0
+        Morocco,0
+        Mozambique,0
+        Namibia,0
+        Nauru,0
+        Nepal,0
+        Netherlands,3.263
+        Netherlands Antilles,0
+        New Caledonia,0
+        New Zealand,0
+        Nicaragua,0
+        Niger,0
+        Nigeria,0
+        Niue,0
+        North Korea,0
+        North Macedonia,0
+        Northern Mariana Islands,
+        Norway,0
+        Oman,0
+        Pakistan,8.109
+        Palestinian Territories,0
+        Panama,0
+        Papua New Guinea,0
+        Paraguay,0
+        Peru,0
+        Philippines,0
+        Poland,0
+        Portugal,0
+        Puerto Rico,0
+        Qatar,0
+        Reunion,0
+        Romania,10.582
+        Russia,190.115
+        Rwanda,0
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0
+        Samoa,0
+        Sao Tome and Principe,0
+        Saudi Arabia,0
+        Senegal,0
+        Serbia,0
+        Seychelles,0
+        Sierra Leone,0
+        Singapore,0
+        Slovakia,14.016
+        Slovenia,5.968
+        Solomon Islands,0
+        Somalia,0
+        South Africa,15.087
+        South Korea,141.278
+        South Sudan,0
+        Spain,55.628
+        Sri Lanka,0
+        Sudan,0
+        Suriname,0
+        Sweden,63.063
+        Switzerland,19.591
+        Syria,0
+        Taiwan,21.56
+        Tajikistan,0
+        Tanzania,0
+        Thailand,0
+        The Bahamas,0
+        Timor-Leste,0
+        Togo,0
+        Tonga,0
+        Trinidad and Tobago,0
+        Tunisia,0
+        Turkey,0
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0
+        Uganda,0
+        Ukraine,80.406
+        United Arab Emirates,0
+        United Kingdom,63.887
+        United States,804.95
+        Uruguay,0
+        Uzbekistan,0
+        Vanuatu,0
+        Venezuela,0
+        Vietnam,0
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0
+        Zambia,0
+        Zimbabwe,0
+fossil fuels electricity net generation (billion kWh),
+    World,15627.22091
+        Afghanistan,0.168
+        Albania,0
+        Algeria,70.86
+        American Samoa,0.167
+        Angola,2.882
+        Antarctica,0
+        Antigua and Barbuda,0.325
+        Argentina,90.702
+        Armenia,2.7
+        Aruba,0.774
+        Australia,204.508
+        Austria,14.767
+        Azerbaijan,21.003
+        Bahrain,27.471
+        Bangladesh,67.619
+        Barbados,1
+        Belarus,31.705
+        Belgium,23.968
+        Belize,0.016
+        Benin,0.305
+        Bermuda,0.622
+        Bhutan,0.00002
+        Bolivia,6.948
+        Bosnia and Herzegovina,11.679
+        Botswana,2.839
+        Brazil,100.435
+        British Virgin Islands,0.19
+        Brunei,3.906
+        Bulgaria,21.844
+        Burkina Faso,0.958
+        Burma,9.239
+        Burundi,0.02
+        Cabo Verde,0.365
+        Cambodia,3.956
+        Cameroon,3.749
+        Canada,117.227
+        Cayman Islands,0.654
+        Central African Republic,0.001
+        Chad,0.22
+        Chile,41.868
+        China,4397.628
+        Colombia,15.146
+        Comoros,0.04
+        Congo-Brazzaville,2.108
+        Congo-Kinshasa,0.011
+        Cook Islands,0.031
+        Costa Rica,0.035
+        Croatia,4.388
+        Cuba,18.586
+        Cyprus,4.295
+        Czech Republic,44.86
+        Côte d’Ivoire,8.039
+        Denmark,7.898
+        Djibouti,0.38
+        Dominica,0.055
+        Dominican Republic,15.189
+        Ecuador,8.147
+        Egypt,166
+        El Salvador,1.315
+        Equatorial Guinea,1.154
+        Eritrea,0.396
+        Estonia,10.317
+        Eswatini,0.25
+        Ethiopia,0.004
+        Falkland Islands,0.008
+        Faroe Islands,0.154
+        Fiji,0.462
+        Finland,11.936
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,59.113
+        French Guiana,0.5
+        French Polynesia,0.4
+        Gabon,1.293
+"        Gambia, The",0.3
+        Georgia,2.099
+        Germany,325.314
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,7.919
+        Gibraltar,0.258
+        Greece,38.905
+        Greenland,0.122
+        Grenada,0.21
+        Guadeloupe,1.44
+        Guam,1.697
+        Guatemala,3.638
+        Guinea,0.51
+        Guinea-Bissau,0.035
+        Guyana,1
+        Haiti,0.872
+        Hawaiian Trade Zone,--
+        Honduras,3.675
+        Hong Kong,34.703
+        Hungary,12.24
+        Iceland,0.002
+        India,1155.784
+        Indonesia,209.252
+        Iran,267.889
+        Iraq,80.754
+        Ireland,20.334
+        Israel,61.797
+        Italy,175.752
+        Jamaica,3.413
+        Japan,770.705
+        Jordan,18.212
+        Kazakhstan,85.996
+        Kenya,1.968
+        Kiribati,0.025
+        Kosovo,5.395
+        Kuwait,68.417
+        Kyrgyzstan,1.232
+        Laos,9.4
+        Latvia,1.945
+        Lebanon,18.697
+        Lesotho,0
+        Liberia,0.4
+        Libya,34.582
+        Lithuania,0.693
+        Luxembourg,0.208
+        Macau,1.377
+        Madagascar,0.8
+        Malawi,0.172
+        Malaysia,128.553
+        Maldives,0.422
+        Mali,1.416
+        Malta,1.391
+        Martinique,1.43
+        Mauritania,0.702
+        Mauritius,2.347
+        Mexico,243.988
+        Micronesia,
+        Moldova,4.369
+        Mongolia,5.294
+        Montenegro,1.28
+        Montserrat,0.025
+        Morocco,25.262
+        Mozambique,2.754
+        Namibia,0.062
+        Nauru,0.025
+        Nepal,0
+        Netherlands,88.937
+        Netherlands Antilles,0.925
+        New Caledonia,2.63
+        New Zealand,7.775
+        Nicaragua,1.872
+        Niger,0.514
+        Nigeria,25.094
+        Niue,0.003
+        North Korea,4.265
+        North Macedonia,4.046
+        Northern Mariana Islands,
+        Norway,2.571
+        Oman,33.958
+        Pakistan,84.238
+        Palestinian Territories,0.471
+        Panama,2.931
+        Papua New Guinea,3.1
+        Paraguay,0.002
+        Peru,20.178
+        Philippines,66.91
+        Poland,136.765
+        Portugal,32.751
+        Puerto Rico,16.322
+        Qatar,42.822
+        Reunion,2.1
+        Romania,26.457
+        Russia,658.192
+        Rwanda,0.35
+        Saint Helena,0.007
+        Saint Kitts and Nevis,0.19
+        Saint Lucia,0.376
+        Saint Pierre and Miquelon,0.046
+        Saint Vincent/Grenadines,0.09
+        Samoa,0.1
+        Sao Tome and Principe,0.08
+        Saudi Arabia,326.834
+        Senegal,3.936
+        Serbia,25.523
+        Seychelles,0.4
+        Sierra Leone,0.075
+        Singapore,47.718
+        Slovakia,5.307
+        Slovenia,4.991
+        Solomon Islands,0.1
+        Somalia,0.33
+        South Africa,213.279
+        South Korea,369.656
+        South Sudan,0.507
+        Spain,118.583
+        Sri Lanka,10.537
+        Sudan,5.823
+        Suriname,0.76
+        Sweden,1.683
+        Switzerland,0.714
+        Syria,16.428
+        Taiwan,216.474
+        Tajikistan,0.922
+        Tanzania,5.253
+        Thailand,146.569
+        The Bahamas,1.745
+        Timor-Leste,0
+        Togo,0.021
+        Tonga,0.052
+        Trinidad and Tobago,10.367
+        Tunisia,18.573
+        Turkey,196.615
+        Turkmenistan,21.182
+        Turks and Caicos Islands,0.24
+        Tuvalu,
+        U.S. Pacific Islands,0.562
+        U.S. Territories,
+        U.S. Virgin Islands,0.516
+        Uganda,0.238
+        Ukraine,54.486
+        United Arab Emirates,125.735
+        United Kingdom,151.945
+        United States,2536.108892
+        Uruguay,0.213
+        Uzbekistan,50.159
+        Vanuatu,0.05
+        Venezuela,39.57
+        Vietnam,102.721
+        Wake Island,0
+        Western Sahara,0
+        Yemen,4.309
+        Zambia,1.868
+        Zimbabwe,3.219
+renewable electricity net generation (billion kWh),
+    World,6272.635029
+        Afghanistan,1.086
+        Albania,4.481
+        Algeria,0.623
+        American Samoa,0
+        Angola,7.794
+        Antarctica,0
+        Antigua and Barbuda,0.006
+        Argentina,42.18
+        Armenia,2.251
+        Aruba,0.147
+        Australia,40.209
+        Austria,49.3641
+        Azerbaijan,1.958
+        Bahrain,0.009
+        Bangladesh,1.221
+        Barbados,0.03
+        Belarus,0.782
+        Belgium,17.09
+        Belize,0.393
+        Benin,0.006
+        Bermuda,0
+        Bhutan,7.652
+        Bolivia,2.551
+        Bosnia and Herzegovina,4.01
+        Botswana,0.002
+        Brazil,462.654
+        British Virgin Islands,0.0013
+        Brunei,0.002
+        Bulgaria,6.099
+        Burkina Faso,0.158
+        Burma,12.553
+        Burundi,0.2
+        Cabo Verde,0.083
+        Cambodia,2.7633
+        Cameroon,4.573
+        Canada,428.263
+        Cayman Islands,0.014
+        Central African Republic,0.1504
+        Chad,0.0093
+        Chile,34.374
+        China,1647.526
+        Colombia,58.209
+        Comoros,0.0004
+        Congo-Brazzaville,1.192
+        Congo-Kinshasa,9.414
+        Cook Islands,0.006
+        Costa Rica,11.184
+        Croatia,7.06
+        Cuba,0.784
+        Cyprus,0.435
+        Czech Republic,9.739
+        Côte d’Ivoire,1.694
+        Denmark,22.639
+        Djibouti,0.0005
+        Dominica,0.0284
+        Dominican Republic,2.856
+        Ecuador,20.457
+        Egypt,16.343
+        El Salvador,3.976
+        Equatorial Guinea,0.571
+        Eritrea,0.004
+        Estonia,1.938
+        Eswatini,0.319
+        Ethiopia,13.7371
+        Falkland Islands,0.009
+        Faroe Islands,0.17
+        Fiji,0.559
+        Finland,31.898
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,95.127
+        French Guiana,0.62
+        French Polynesia,0.2103
+        Gabon,0.898
+"        Gambia, The",0.0031
+        Georgia,9.206
+        Germany,223.086
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,5.607
+        Gibraltar,0
+        Greece,13.8
+        Greenland,0.384
+        Grenada,0.004
+        Guadeloupe,0.209
+        Guam,0.06
+        Guatemala,8.885
+        Guinea,1.122
+        Guinea-Bissau,0.001
+        Guyana,0.0421
+        Haiti,0.09
+        Hawaiian Trade Zone,--
+        Honduras,5.288
+        Hong Kong,0.11
+        Hungary,3.719
+        Iceland,18.844
+        India,247.536
+        Indonesia,32.074
+        Iran,15.309
+        Iraq,1.5
+        Ireland,9.03
+        Israel,1.6918
+        Italy,105.568
+        Jamaica,0.746
+        Japan,207.624
+        Jordan,1.387
+        Kazakhstan,11.579
+        Kenya,8.144
+        Kiribati,0.005
+        Kosovo,0.181
+        Kuwait,0.022
+        Kyrgyzstan,14.061
+        Laos,18.481
+        Latvia,5.4354
+        Lebanon,0.353
+        Lesotho,0.5
+        Liberia,0
+        Libya,0.008
+        Lithuania,2.607
+        Luxembourg,0.673
+        Macau,0
+        Madagascar,0.892
+        Malawi,1.873
+        Malaysia,27.478
+        Maldives,0.002
+        Mali,1.174
+        Malta,0.1654
+        Martinique,0.026
+        Mauritania,0.474
+        Mauritius,0.66
+        Mexico,50.543
+        Micronesia,
+        Moldova,0.314
+        Mongolia,0.396
+        Montenegro,1.111
+        Montserrat,0
+        Morocco,4.636
+        Mozambique,13.983
+        Namibia,1.582
+        Nauru,0
+        Nepal,4.668
+        Netherlands,19.243
+        Netherlands Antilles,0.273
+        New Caledonia,0.405
+        New Zealand,35.219
+        Nicaragua,2.552
+        Niger,0.005
+        Nigeria,5.526
+        Niue,0
+        North Korea,11.796
+        North Macedonia,1.285
+        Northern Mariana Islands,
+        Norway,144.469
+        Oman,0
+        Pakistan,33.705
+        Palestinian Territories,0.001
+        Panama,7.859
+        Papua New Guinea,0.831
+        Paraguay,59.226
+        Peru,31.161
+        Philippines,23.092
+        Poland,24.1
+        Portugal,22.591
+        Puerto Rico,0.369
+        Qatar,0.123
+        Reunion,1.045
+        Romania,24.14
+        Russia,186.976
+        Rwanda,0.327
+        Saint Helena,0
+        Saint Kitts and Nevis,0.008
+        Saint Lucia,0.001
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0.028
+        Samoa,0.0322
+        Sao Tome and Principe,0.007
+        Saudi Arabia,0.16
+        Senegal,0.539
+        Serbia,9.202
+        Seychelles,0
+        Sierra Leone,0.134
+        Singapore,1.623
+        Slovakia,6.681
+        Slovenia,4.403
+        Solomon Islands,0.007
+        Somalia,0.017
+        South Africa,9.559
+        South Korea,20.908
+        South Sudan,0.003
+        Spain,87.094
+        Sri Lanka,4.554
+        Sudan,9.391
+        Suriname,1.061
+        Sweden,96.247
+        Switzerland,38.675
+        Syria,0.779
+        Taiwan,12.338
+        Tajikistan,16.962
+        Tanzania,2.367
+        Thailand,30.528
+        The Bahamas,0.002
+        Timor-Leste,0
+        Togo,0.212
+        Tonga,0
+        Trinidad and Tobago,0.004
+        Tunisia,0.599
+        Turkey,86.471
+        Turkmenistan,0.003
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0.014
+        Uganda,3.695
+        Ukraine,10.789
+        United Arab Emirates,0.797
+        United Kingdom,103.417
+        United States,723.6968286
+        Uruguay,13.333
+        Uzbekistan,8.348
+        Vanuatu,0.0091
+        Venezuela,64.296
+        Vietnam,70.578
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0.194
+        Zambia,12.16
+        Zimbabwe,4.091
+hydroelectricity net generation (billion kWh),
+    World,4006.074956
+        Afghanistan,1.05
+        Albania,4.48
+        Algeria,0.055
+        American Samoa,0
+        Angola,7.576
+        Antarctica,0
+        Antigua and Barbuda,0
+        Argentina,39.453
+        Armenia,2.246
+        Aruba,0
+        Australia,16.038
+        Austria,36.415
+        Azerbaijan,1.729
+        Bahrain,0
+        Bangladesh,1.031
+        Barbados,0
+        Belarus,0.401
+        Belgium,0.268
+        Belize,0.268
+        Benin,0.001
+        Bermuda,0
+        Bhutan,7.65
+        Bolivia,2.212
+        Bosnia and Herzegovina,3.947
+        Botswana,0
+        Brazil,367.197
+        British Virgin Islands,0
+        Brunei,0
+        Bulgaria,2.8
+        Burkina Faso,0.128
+        Burma,12.458
+        Burundi,0.185
+        Cabo Verde,0
+        Cambodia,2.706
+        Cameroon,4.554
+        Canada,388.649
+        Cayman Islands,0
+        Central African Republic,0.15
+        Chad,0
+        Chile,20.889
+        China,1145.516
+        Colombia,56.769
+        Comoros,0.0004
+        Congo-Brazzaville,1.191
+        Congo-Kinshasa,9.387
+        Cook Islands,0
+        Costa Rica,8.59
+        Croatia,5.255
+        Cuba,0.082
+        Cyprus,0
+        Czech Republic,1.852
+        Côte d’Ivoire,1.514
+        Denmark,0.018
+        Djibouti,0
+        Dominica,0.027
+        Dominican Republic,2.174
+        Ecuador,19.888
+        Egypt,13.258
+        El Salvador,1.615
+        Equatorial Guinea,0.571
+        Eritrea,0
+        Estonia,0.026
+        Eswatini,0.116
+        Ethiopia,12.827
+        Falkland Islands,0
+        Faroe Islands,0.11
+        Fiji,0.486
+        Finland,14.61
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,49.362
+        French Guiana,0.558
+        French Polynesia,0.174
+        Gabon,0.885
+"        Gambia, The",0
+        Georgia,9.118
+        Germany,19.978
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,5.56
+        Gibraltar,0
+        Greece,3.962
+        Greenland,0.384
+        Grenada,0
+        Guadeloupe,0
+        Guam,0
+        Guatemala,5.707
+        Guinea,1.101
+        Guinea-Bissau,0
+        Guyana,0
+        Haiti,0.089
+        Hawaiian Trade Zone,--
+        Honduras,2.941
+        Hong Kong,0
+        Hungary,0.214
+        Iceland,13.892
+        India,125.01
+        Indonesia,18.446
+        Iran,14.9
+        Iraq,1.443
+        Ireland,0.685
+        Israel,0.0004
+        Italy,35.731
+        Jamaica,0.152
+        Japan,82.518
+        Jordan,0.038
+        Kazakhstan,11.098
+        Kenya,3.174
+        Kiribati,0
+        Kosovo,0.177
+        Kuwait,0
+        Kyrgyzstan,14.061
+        Laos,18.467
+        Latvia,4.356
+        Lebanon,0.347
+        Lesotho,0.5
+        Liberia,0
+        Libya,0
+        Lithuania,0.597
+        Luxembourg,0.082
+        Macau,0
+        Madagascar,0.89
+        Malawi,1.82
+        Malaysia,26.309
+        Maldives,0
+        Mali,1.119
+        Malta,0
+        Martinique,0
+        Mauritania,0.23
+        Mauritius,0.089
+        Mexico,31.739
+        Micronesia,
+        Moldova,0.282
+        Mongolia,0.058
+        Montenegro,1.014
+        Montserrat,0
+        Morocco,1.173
+        Mozambique,13.92
+        Namibia,1.577
+        Nauru,0
+        Nepal,4.586
+        Netherlands,0.061
+        Netherlands Antilles,0
+        New Caledonia,0.36
+        New Zealand,24.934
+        Nicaragua,0.463
+        Niger,0
+        Nigeria,5.472
+        Niue,0
+        North Korea,11.781
+        North Macedonia,1.099
+        Northern Mariana Islands,
+        Norway,141.119
+        Oman,0
+        Pakistan,27.646
+        Palestinian Territories,0
+        Panama,7.181
+        Papua New Guinea,0.79
+        Paraguay,59.087
+        Peru,28.769
+        Philippines,9.515
+        Poland,2.552
+        Portugal,5.79
+        Puerto Rico,0.05
+        Qatar,0
+        Reunion,0.5
+        Romania,14.349
+        Russia,183.163
+        Rwanda,0.325
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0.026
+        Samoa,0.032
+        Sao Tome and Principe,0.007
+        Saudi Arabia,0
+        Senegal,0.334
+        Serbia,9.061
+        Seychelles,0
+        Sierra Leone,0.13
+        Singapore,0
+        Slovakia,4.321
+        Slovenia,3.814
+        Solomon Islands,0
+        Somalia,0
+        South Africa,0.862
+        South Korea,2.828
+        South Sudan,0
+        Spain,18.459
+        Sri Lanka,3.981
+        Sudan,9.254
+        Suriname,1.046
+        Sweden,64.651
+        Switzerland,33.754
+        Syria,0.746
+        Taiwan,5.446
+        Tajikistan,16.962
+        Tanzania,2.327
+        Thailand,9.432
+        The Bahamas,0
+        Timor-Leste,0
+        Togo,0.203
+        Tonga,0
+        Trinidad and Tobago,0
+        Tunisia,0.017
+        Turkey,57.824
+        Turkmenistan,0.003
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,
+        U.S. Territories,
+        U.S. Virgin Islands,0
+        Uganda,3.407
+        Ukraine,8.856
+        United Arab Emirates,0
+        United Kingdom,5.861
+        United States,300.333156
+        Uruguay,7.443
+        Uzbekistan,8.343
+        Vanuatu,0
+        Venezuela,64.199
+        Vietnam,70.17
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0
+        Zambia,12.076
+        Zimbabwe,3.929
+non-hydro renewable electricity net generation (billion kWh),
+    World,2266.560073
+        Afghanistan,0.036
+        Albania,0.001
+        Algeria,0.568
+        American Samoa,0
+        Angola,0.218
+        Antarctica,0
+        Antigua and Barbuda,0.006
+        Argentina,2.727
+        Armenia,0.005
+        Aruba,0.147
+        Australia,24.171
+        Austria,12.9491
+        Azerbaijan,0.229
+        Bahrain,0.009
+        Bangladesh,0.19
+        Barbados,0.03
+        Belarus,0.381
+        Belgium,16.822
+        Belize,0.125
+        Benin,0.005
+        Bermuda,0
+        Bhutan,0.002
+        Bolivia,0.339
+        Bosnia and Herzegovina,0.063
+        Botswana,0.002
+        Brazil,95.457
+        British Virgin Islands,0.0013
+        Brunei,0.002
+        Bulgaria,3.299
+        Burkina Faso,0.03
+        Burma,0.095
+        Burundi,0.015
+        Cabo Verde,0.083
+        Cambodia,0.0573
+        Cameroon,0.019
+        Canada,39.614
+        Cayman Islands,0.014
+        Central African Republic,0.0004
+        Chad,0.0093
+        Chile,13.485
+        China,502.01
+        Colombia,1.44
+        Comoros,0
+        Congo-Brazzaville,0.001
+        Congo-Kinshasa,0.027
+        Cook Islands,0.006
+        Costa Rica,2.594
+        Croatia,1.805
+        Cuba,0.702
+        Cyprus,0.435
+        Czech Republic,7.887
+        Côte d’Ivoire,0.18
+        Denmark,22.621
+        Djibouti,0.0005
+        Dominica,0.0014
+        Dominican Republic,0.682
+        Ecuador,0.569
+        Egypt,3.085
+        El Salvador,2.361
+        Equatorial Guinea,0
+        Eritrea,0.004
+        Estonia,1.912
+        Eswatini,0.203
+        Ethiopia,0.9101
+        Falkland Islands,0.009
+        Faroe Islands,0.06
+        Fiji,0.073
+        Finland,17.288
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,45.765
+        French Guiana,0.062
+        French Polynesia,0.0363
+        Gabon,0.013
+"        Gambia, The",0.0031
+        Georgia,0.088
+        Germany,203.108
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0.047
+        Gibraltar,0
+        Greece,9.838
+        Greenland,0
+        Grenada,0.004
+        Guadeloupe,0.209
+        Guam,0.06
+        Guatemala,3.178
+        Guinea,0.021
+        Guinea-Bissau,0.001
+        Guyana,0.0421
+        Haiti,0.001
+        Hawaiian Trade Zone,--
+        Honduras,2.347
+        Hong Kong,0.11
+        Hungary,3.505
+        Iceland,4.952
+        India,122.526
+        Indonesia,13.628
+        Iran,0.409
+        Iraq,0.057
+        Ireland,8.345
+        Israel,1.6914
+        Italy,69.837
+        Jamaica,0.594
+        Japan,125.106
+        Jordan,1.349
+        Kazakhstan,0.481
+        Kenya,4.97
+        Kiribati,0.005
+        Kosovo,0.004
+        Kuwait,0.022
+        Kyrgyzstan,0
+        Laos,0.014
+        Latvia,1.0794
+        Lebanon,0.006
+        Lesotho,0
+        Liberia,0
+        Libya,0.008
+        Lithuania,2.01
+        Luxembourg,0.591
+        Macau,0
+        Madagascar,0.002
+        Malawi,0.053
+        Malaysia,1.169
+        Maldives,0.002
+        Mali,0.055
+        Malta,0.1654
+        Martinique,0.026
+        Mauritania,0.244
+        Mauritius,0.571
+        Mexico,18.804
+        Micronesia,
+        Moldova,0.032
+        Mongolia,0.338
+        Montenegro,0.097
+        Montserrat,0
+        Morocco,3.463
+        Mozambique,0.063
+        Namibia,0.005
+        Nauru,0
+        Nepal,0.082
+        Netherlands,19.182
+        Netherlands Antilles,0.273
+        New Caledonia,0.045
+        New Zealand,10.285
+        Nicaragua,2.089
+        Niger,0.005
+        Nigeria,0.054
+        Niue,0
+        North Korea,0.015
+        North Macedonia,0.186
+        Northern Mariana Islands,
+        Norway,3.35
+        Oman,0
+        Pakistan,6.059
+        Palestinian Territories,0.001
+        Panama,0.678
+        Papua New Guinea,0.041
+        Paraguay,0.139
+        Peru,2.392
+        Philippines,13.577
+        Poland,21.548
+        Portugal,16.801
+        Puerto Rico,0.319
+        Qatar,0.123
+        Reunion,0.545
+        Romania,9.791
+        Russia,3.813
+        Rwanda,0.002
+        Saint Helena,0
+        Saint Kitts and Nevis,0.008
+        Saint Lucia,0.001
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0.002
+        Samoa,0.0002
+        Sao Tome and Principe,0
+        Saudi Arabia,0.16
+        Senegal,0.205
+        Serbia,0.141
+        Seychelles,0
+        Sierra Leone,0.004
+        Singapore,1.623
+        Slovakia,2.36
+        Slovenia,0.589
+        Solomon Islands,0.007
+        Somalia,0.017
+        South Africa,8.697
+        South Korea,18.08
+        South Sudan,0.003
+        Spain,68.635
+        Sri Lanka,0.573
+        Sudan,0.137
+        Suriname,0.015
+        Sweden,31.596
+        Switzerland,4.921
+        Syria,0.033
+        Taiwan,6.892
+        Tajikistan,0
+        Tanzania,0.04
+        Thailand,21.096
+        The Bahamas,0.002
+        Timor-Leste,0
+        Togo,0.009
+        Tonga,0
+        Trinidad and Tobago,0.004
+        Tunisia,0.582
+        Turkey,28.647
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0.014
+        Uganda,0.288
+        Ukraine,1.933
+        United Arab Emirates,0.797
+        United Kingdom,97.556
+        United States,423.3636726
+        Uruguay,5.89
+        Uzbekistan,0.005
+        Vanuatu,0.0091
+        Venezuela,0.097
+        Vietnam,0.408
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0.194
+        Zambia,0.084
+        Zimbabwe,0.162
+geothermal electricity net generation (billion kWh),
+    World,79.678965
+        Afghanistan,0
+        Albania,0
+        Algeria,0
+        American Samoa,0
+        Angola,0
+        Antarctica,0
+        Antigua and Barbuda,0
+        Argentina,0
+        Armenia,0
+        Aruba,0
+        Australia,0.001
+        Austria,0.0001
+        Azerbaijan,0
+        Bahrain,0
+        Bangladesh,0
+        Barbados,0
+        Belarus,0
+        Belgium,0
+        Belize,0
+        Benin,0
+        Bermuda,0
+        Bhutan,0
+        Bolivia,0
+        Bosnia and Herzegovina,0
+        Botswana,0
+        Brazil,0
+        British Virgin Islands,0
+        Brunei,0
+        Bulgaria,0
+        Burkina Faso,0
+        Burma,0
+        Burundi,0
+        Cabo Verde,0
+        Cambodia,0
+        Cameroon,0
+        Canada,0
+        Cayman Islands,0
+        Central African Republic,0
+        Chad,0
+        Chile,0.064
+        China,0.125
+        Colombia,0
+        Comoros,0
+        Congo-Brazzaville,0
+        Congo-Kinshasa,0
+        Cook Islands,0
+        Costa Rica,1.118
+        Croatia,0
+        Cuba,0
+        Cyprus,0
+        Czech Republic,0
+        Côte d’Ivoire,0
+        Denmark,0
+        Djibouti,0
+        Dominica,0
+        Dominican Republic,0
+        Ecuador,0
+        Egypt,0
+        El Salvador,1.46
+        Equatorial Guinea,0
+        Eritrea,0
+        Estonia,0
+        Eswatini,0
+        Ethiopia,0.0001
+        Falkland Islands,0
+        Faroe Islands,0
+        Fiji,0
+        Finland,0
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,0.12
+        French Guiana,0
+        French Polynesia,0
+        Gabon,0
+"        Gambia, The",0
+        Georgia,0
+        Germany,0.157
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0
+        Gibraltar,0
+        Greece,0
+        Greenland,0
+        Grenada,0
+        Guadeloupe,0
+        Guam,0
+        Guatemala,0.253
+        Guinea,0
+        Guinea-Bissau,0
+        Guyana,0
+        Haiti,0
+        Hawaiian Trade Zone,--
+        Honduras,0.093
+        Hong Kong,0
+        Hungary,0.001
+        Iceland,4.944
+        India,0
+        Indonesia,12.764
+        Iran,0
+        Iraq,0
+        Ireland,0
+        Israel,0
+        Italy,5.82
+        Jamaica,0
+        Japan,2.212
+        Jordan,0
+        Kazakhstan,0
+        Kenya,4.756
+        Kiribati,0
+        Kosovo,0
+        Kuwait,0
+        Kyrgyzstan,0
+        Laos,0
+        Latvia,0
+        Lebanon,0
+        Lesotho,0
+        Liberia,0
+        Libya,0
+        Lithuania,0
+        Luxembourg,0
+        Macau,0
+        Madagascar,0
+        Malawi,0
+        Malaysia,0
+        Maldives,0
+        Mali,0
+        Malta,0
+        Martinique,0
+        Mauritania,0
+        Mauritius,0
+        Mexico,5.653
+        Micronesia,
+        Moldova,0
+        Mongolia,0
+        Montenegro,0
+        Montserrat,0
+        Morocco,0
+        Mozambique,0
+        Namibia,0
+        Nauru,0
+        Nepal,0
+        Netherlands,0
+        Netherlands Antilles,0
+        New Caledonia,0
+        New Zealand,7.459
+        Nicaragua,0.751
+        Niger,0
+        Nigeria,0
+        Niue,0
+        North Korea,0
+        North Macedonia,0
+        Northern Mariana Islands,
+        Norway,0
+        Oman,0
+        Pakistan,0
+        Palestinian Territories,0
+        Panama,0
+        Papua New Guinea,0
+        Paraguay,0
+        Peru,0
+        Philippines,10.27
+        Poland,0
+        Portugal,0.193
+        Puerto Rico,0
+        Qatar,0
+        Reunion,0
+        Romania,0
+        Russia,0.435
+        Rwanda,0
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0
+        Samoa,0
+        Sao Tome and Principe,0
+        Saudi Arabia,0
+        Senegal,0
+        Serbia,0
+        Seychelles,0
+        Sierra Leone,0
+        Singapore,0
+        Slovakia,0
+        Slovenia,0
+        Solomon Islands,0
+        Somalia,0
+        South Africa,0
+        South Korea,0
+        South Sudan,0
+        Spain,0
+        Sri Lanka,0
+        Sudan,0
+        Suriname,0
+        Sweden,0
+        Switzerland,0
+        Syria,0
+        Taiwan,0
+        Tajikistan,0
+        Tanzania,0
+        Thailand,0.002
+        The Bahamas,0
+        Timor-Leste,0
+        Togo,0
+        Tonga,0
+        Trinidad and Tobago,0
+        Tunisia,0
+        Turkey,5.101
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0
+        Uganda,0
+        Ukraine,0
+        United Arab Emirates,0
+        United Kingdom,0
+        United States,15.926765
+        Uruguay,0
+        Uzbekistan,0
+        Vanuatu,0
+        Venezuela,0
+        Vietnam,0
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0
+        Zambia,0
+        Zimbabwe,0
+"solar, tide, wave, fuel cell electricity net generation (billion kWh)",
+    World,474.256759
+        Afghanistan,0.036
+        Albania,0.001
+        Algeria,0.56
+        American Samoa,0
+        Angola,0.018
+        Antarctica,0
+        Antigua and Barbuda,0.006
+        Argentina,0.016
+        Armenia,0.003
+        Aruba,0.009
+        Australia,8.073
+        Austria,1.204
+        Azerbaijan,0.037
+        Bahrain,0.008
+        Bangladesh,0.177
+        Barbados,0.03
+        Belarus,0.089
+        Belgium,3.275
+        Belize,0.005
+        Benin,0.005
+        Bermuda,0
+        Bhutan,0.001
+        Bolivia,0.011
+        Bosnia and Herzegovina,0.021
+        Botswana,0.002
+        Brazil,0.832
+        British Virgin Islands,0.0003
+        Brunei,0.002
+        Bulgaria,1.403
+        Burkina Faso,0.029
+        Burma,0.081
+        Burundi,0.008
+        Cabo Verde,0.007
+        Cambodia,0.005
+        Cameroon,0.016
+        Canada,3.774
+        Cayman Islands,0.014
+        Central African Republic,0.0004
+        Chad,0.0003
+        Chile,3.843
+        China,117.811
+        Colombia,0.014
+        Comoros,0
+        Congo-Brazzaville,0.001
+        Congo-Kinshasa,0.007
+        Cook Islands,0.006
+        Costa Rica,0.004
+        Croatia,0.079
+        Cuba,0.06
+        Cyprus,0.172
+        Czech Republic,2.247
+        Côte d’Ivoire,0.007
+        Denmark,0.751
+        Djibouti,0.0005
+        Dominica,0.0004
+        Dominican Republic,0.139
+        Ecuador,0.037
+        Egypt,0.21
+        El Salvador,0.185
+        Equatorial Guinea,0
+        Eritrea,0.002
+        Estonia,0.01
+        Eswatini,0.001
+        Ethiopia,0.022
+        Falkland Islands,0
+        Faroe Islands,0
+        Fiji,0.009
+        Finland,0.157
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,10.762
+        French Guiana,0.052
+        French Polynesia,0.036
+        Gabon,0.002
+"        Gambia, The",0.003
+        Georgia,0
+        Germany,41.024
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0.028
+        Gibraltar,0
+        Greece,3.991
+        Greenland,0
+        Grenada,0.003
+        Guadeloupe,0.092
+        Guam,0.06
+        Guatemala,0.199
+        Guinea,0.021
+        Guinea-Bissau,0.001
+        Guyana,0.012
+        Haiti,0.001
+        Hawaiian Trade Zone,--
+        Honduras,0.924
+        Hong Kong,0.001
+        Hungary,0.425
+        Iceland,0
+        India,26.035
+        Indonesia,0.029
+        Iran,0.085
+        Iraq,0.057
+        Ireland,0.011
+        Israel,1.511
+        Italy,24.6
+        Jamaica,0.044
+        Japan,75.473
+        Jordan,0.895
+        Kazakhstan,0.094
+        Kenya,0.04
+        Kiribati,0.005
+        Kosovo,0.001
+        Kuwait,0.004
+        Kyrgyzstan,0
+        Laos,0.009
+        Latvia,0.0004
+        Lebanon,0
+        Lesotho,0
+        Liberia,0
+        Libya,0.008
+        Lithuania,0.067
+        Luxembourg,0.108
+        Macau,0
+        Madagascar,0
+        Malawi,0
+        Malaysia,0.33
+        Maldives,0
+        Mali,0.003
+        Malta,0.155
+        Martinique,0
+        Mauritania,0.14
+        Mauritius,0.076
+        Mexico,1.074
+        Micronesia,
+        Moldova,0.002
+        Mongolia,0.029
+        Montenegro,0
+        Montserrat,0
+        Morocco,0.415
+        Mozambique,0.002
+        Namibia,0
+        Nauru,0
+        Nepal,0.076
+        Netherlands,2.326
+        Netherlands Antilles,0
+        New Caledonia,0
+        New Zealand,0.12
+        Nicaragua,0.037
+        Niger,0.005
+        Nigeria,0.026
+        Niue,0
+        North Korea,0.014
+        North Macedonia,0.024
+        Northern Mariana Islands,
+        Norway,0
+        Oman,0
+        Pakistan,0.889
+        Palestinian Territories,0
+        Panama,0.156
+        Papua New Guinea,0.002
+        Paraguay,0
+        Peru,0.287
+        Philippines,1.201
+        Poland,0.173
+        Portugal,0.992
+        Puerto Rico,0.159
+        Qatar,0.008
+        Reunion,0.257
+        Romania,1.856
+        Russia,0.56
+        Rwanda,0
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0.001
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0.002
+        Samoa,0
+        Sao Tome and Principe,0
+        Saudi Arabia,0.155
+        Senegal,0.137
+        Serbia,0.013
+        Seychelles,0
+        Sierra Leone,0
+        Singapore,0.169
+        Slovakia,0.633
+        Slovenia,0.284
+        Solomon Islands,0.003
+        Somalia,0.011
+        South Africa,3.31
+        South Korea,9.014
+        South Sudan,0.003
+        Spain,13.856
+        Sri Lanka,0.141
+        Sudan,0.02
+        Suriname,0.009
+        Sweden,0.23
+        Switzerland,1.683
+        Syria,0
+        Taiwan,1.692
+        Tajikistan,0
+        Tanzania,0.019
+        Thailand,4.543
+        The Bahamas,0.002
+        Timor-Leste,0
+        Togo,0.004
+        Tonga,0
+        Trinidad and Tobago,0.004
+        Tunisia,0.133
+        Turkey,3.629
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0.014
+        Uganda,0.061
+        Ukraine,0.74
+        United Arab Emirates,0.79
+        United Kingdom,11.529
+        United States,77.276459
+        Uruguay,0.269
+        Uzbekistan,0.005
+        Vanuatu,0.004
+        Venezuela,0.007
+        Vietnam,0.009
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0.194
+        Zambia,0.006
+        Zimbabwe,0.011
+tide and wave electricity net generation (billion kWh),
+    World,27.472
+        Afghanistan,0
+        Albania,0
+        Algeria,0
+        American Samoa,0
+        Angola,0
+        Antarctica,0
+        Antigua and Barbuda,0
+        Argentina,0
+        Armenia,0
+        Aruba,0
+        Australia,0
+        Austria,0
+        Azerbaijan,0
+        Bahrain,0
+        Bangladesh,0
+        Barbados,0
+        Belarus,0
+        Belgium,0.011
+        Belize,0
+        Benin,0
+        Bermuda,0
+        Bhutan,0
+        Bolivia,0
+        Bosnia and Herzegovina,0
+        Botswana,0
+        Brazil,0
+        British Virgin Islands,0
+        Brunei,0
+        Bulgaria,0
+        Burkina Faso,0
+        Burma,0
+        Burundi,0
+        Cabo Verde,0
+        Cambodia,0
+        Cameroon,0
+        Canada,0.229
+        Cayman Islands,0
+        Central African Republic,0
+        Chad,0
+        Chile,0
+        China,0.011
+        Colombia,0
+        Comoros,0
+        Congo-Brazzaville,0
+        Congo-Kinshasa,0
+        Cook Islands,0
+        Costa Rica,0
+        Croatia,0
+        Cuba,0
+        Cyprus,0
+        Czech Republic,0.078
+        Côte d’Ivoire,0
+        Denmark,0
+        Djibouti,0
+        Dominica,0
+        Dominican Republic,0
+        Ecuador,0
+        Egypt,0
+        El Salvador,0
+        Equatorial Guinea,0
+        Eritrea,0
+        Estonia,0
+        Eswatini,0
+        Ethiopia,0
+        Falkland Islands,0
+        Faroe Islands,0
+        Fiji,0
+        Finland,0.114
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,1.189
+        French Guiana,0
+        French Polynesia,0
+        Gabon,0
+"        Gambia, The",0
+        Georgia,0
+        Germany,1.623
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0
+        Gibraltar,0
+        Greece,0
+        Greenland,0
+        Grenada,0
+        Guadeloupe,0
+        Guam,0
+        Guatemala,0
+        Guinea,0
+        Guinea-Bissau,0
+        Guyana,0
+        Haiti,0
+        Hawaiian Trade Zone,--
+        Honduras,0
+        Hong Kong,0
+        Hungary,0.076
+        Iceland,0
+        India,0
+        Indonesia,0
+        Iran,0
+        Iraq,0
+        Ireland,0
+        Israel,0
+        Italy,0.583
+        Jamaica,0
+        Japan,20.404
+        Jordan,0
+        Kazakhstan,0
+        Kenya,0
+        Kiribati,0
+        Kosovo,0
+        Kuwait,0
+        Kyrgyzstan,0
+        Laos,0
+        Latvia,0
+        Lebanon,0
+        Lesotho,0
+        Liberia,0
+        Libya,0
+        Lithuania,0
+        Luxembourg,0
+        Macau,0
+        Madagascar,0
+        Malawi,0
+        Malaysia,0
+        Maldives,0
+        Mali,0
+        Malta,0
+        Martinique,0
+        Mauritania,0
+        Mauritius,0
+        Mexico,0
+        Micronesia,
+        Moldova,0
+        Mongolia,0
+        Montenegro,0
+        Montserrat,0
+        Morocco,0
+        Mozambique,0
+        Namibia,0
+        Nauru,0
+        Nepal,0
+        Netherlands,0.122
+        Netherlands Antilles,0
+        New Caledonia,0
+        New Zealand,0.046
+        Nicaragua,0
+        Niger,0
+        Nigeria,0
+        Niue,0
+        North Korea,0
+        North Macedonia,0
+        Northern Mariana Islands,
+        Norway,0
+        Oman,0
+        Pakistan,0
+        Palestinian Territories,0
+        Panama,0
+        Papua New Guinea,0
+        Paraguay,0
+        Peru,0
+        Philippines,0
+        Poland,0.008
+        Portugal,0
+        Puerto Rico,0
+        Qatar,0
+        Reunion,0
+        Romania,0
+        Russia,0
+        Rwanda,0
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0
+        Samoa,0
+        Sao Tome and Principe,0
+        Saudi Arabia,0
+        Senegal,0
+        Serbia,0
+        Seychelles,0
+        Sierra Leone,0
+        Singapore,0
+        Slovakia,0.127
+        Slovenia,0
+        Solomon Islands,0
+        Somalia,0
+        South Africa,0
+        South Korea,1.958
+        South Sudan,0
+        Spain,0.078
+        Sri Lanka,0
+        Sudan,0
+        Suriname,0
+        Sweden,0
+        Switzerland,0
+        Syria,0
+        Taiwan,0
+        Tajikistan,0
+        Tanzania,0
+        Thailand,0
+        The Bahamas,0
+        Timor-Leste,0
+        Togo,0
+        Tonga,0
+        Trinidad and Tobago,0
+        Tunisia,0
+        Turkey,0.811
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0
+        Uganda,0
+        Ukraine,0
+        United Arab Emirates,0
+        United Kingdom,0.004
+        United States,0
+        Uruguay,0
+        Uzbekistan,0
+        Vanuatu,0
+        Venezuela,0
+        Vietnam,0
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0
+        Zambia,0
+        Zimbabwe,0
+solar electricity net generation (billion kWh),
+    World,446.784759
+        Afghanistan,0.036
+        Albania,0.001
+        Algeria,0.56
+        American Samoa,0
+        Angola,0.018
+        Antarctica,0
+        Antigua and Barbuda,0.006
+        Argentina,0.016
+        Armenia,0.003
+        Aruba,0.009
+        Australia,8.073
+        Austria,1.204
+        Azerbaijan,0.037
+        Bahrain,0.008
+        Bangladesh,0.177
+        Barbados,0.03
+        Belarus,0.089
+        Belgium,3.264
+        Belize,0.005
+        Benin,0.005
+        Bermuda,0
+        Bhutan,0.001
+        Bolivia,0.011
+        Bosnia and Herzegovina,0.021
+        Botswana,0.002
+        Brazil,0.832
+        British Virgin Islands,0.0003
+        Brunei,0.002
+        Bulgaria,1.403
+        Burkina Faso,0.029
+        Burma,0.081
+        Burundi,0.008
+        Cabo Verde,0.007
+        Cambodia,0.005
+        Cameroon,0.016
+        Canada,3.545
+        Cayman Islands,0.014
+        Central African Republic,0.0004
+        Chad,0.0003
+        Chile,3.843
+        China,117.8
+        Colombia,0.014
+        Comoros,0
+        Congo-Brazzaville,0.001
+        Congo-Kinshasa,0.007
+        Cook Islands,0.006
+        Costa Rica,0.004
+        Croatia,0.079
+        Cuba,0.06
+        Cyprus,0.172
+        Czech Republic,2.169
+        Côte d’Ivoire,0.007
+        Denmark,0.751
+        Djibouti,0.0005
+        Dominica,0.0004
+        Dominican Republic,0.139
+        Ecuador,0.037
+        Egypt,0.21
+        El Salvador,0.185
+        Equatorial Guinea,0
+        Eritrea,0.002
+        Estonia,0.01
+        Eswatini,0.001
+        Ethiopia,0.022
+        Falkland Islands,0
+        Faroe Islands,0
+        Fiji,0.009
+        Finland,0.043
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,9.573
+        French Guiana,0.052
+        French Polynesia,0.036
+        Gabon,0.002
+"        Gambia, The",0.003
+        Georgia,0
+        Germany,39.401
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0.028
+        Gibraltar,0
+        Greece,3.991
+        Greenland,0
+        Grenada,0.003
+        Guadeloupe,0.092
+        Guam,0.06
+        Guatemala,0.199
+        Guinea,0.021
+        Guinea-Bissau,0.001
+        Guyana,0.012
+        Haiti,0.001
+        Hawaiian Trade Zone,--
+        Honduras,0.924
+        Hong Kong,0.001
+        Hungary,0.349
+        Iceland,0
+        India,26.035
+        Indonesia,0.029
+        Iran,0.085
+        Iraq,0.057
+        Ireland,0.011
+        Israel,1.511
+        Italy,24.017
+        Jamaica,0.044
+        Japan,55.069
+        Jordan,0.895
+        Kazakhstan,0.094
+        Kenya,0.04
+        Kiribati,0.005
+        Kosovo,0.001
+        Kuwait,0.004
+        Kyrgyzstan,0
+        Laos,0.009
+        Latvia,0.0004
+        Lebanon,0
+        Lesotho,0
+        Liberia,0
+        Libya,0.008
+        Lithuania,0.067
+        Luxembourg,0.108
+        Macau,0
+        Madagascar,0
+        Malawi,0
+        Malaysia,0.33
+        Maldives,0
+        Mali,0.003
+        Malta,0.155
+        Martinique,0
+        Mauritania,0.14
+        Mauritius,0.076
+        Mexico,1.074
+        Micronesia,
+        Moldova,0.002
+        Mongolia,0.029
+        Montenegro,0
+        Montserrat,0
+        Morocco,0.415
+        Mozambique,0.002
+        Namibia,0
+        Nauru,0
+        Nepal,0.076
+        Netherlands,2.204
+        Netherlands Antilles,0
+        New Caledonia,0
+        New Zealand,0.074
+        Nicaragua,0.037
+        Niger,0.005
+        Nigeria,0.026
+        Niue,0
+        North Korea,0.014
+        North Macedonia,0.024
+        Northern Mariana Islands,
+        Norway,0
+        Oman,0
+        Pakistan,0.889
+        Palestinian Territories,0
+        Panama,0.156
+        Papua New Guinea,0.002
+        Paraguay,0
+        Peru,0.287
+        Philippines,1.201
+        Poland,0.165
+        Portugal,0.992
+        Puerto Rico,0.159
+        Qatar,0.008
+        Reunion,0.257
+        Romania,1.856
+        Russia,0.56
+        Rwanda,0
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0.001
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0.002
+        Samoa,0
+        Sao Tome and Principe,0
+        Saudi Arabia,0.155
+        Senegal,0.137
+        Serbia,0.013
+        Seychelles,0
+        Sierra Leone,0
+        Singapore,0.169
+        Slovakia,0.506
+        Slovenia,0.284
+        Solomon Islands,0.003
+        Somalia,0.011
+        South Africa,3.31
+        South Korea,7.056
+        South Sudan,0.003
+        Spain,13.778
+        Sri Lanka,0.141
+        Sudan,0.02
+        Suriname,0.009
+        Sweden,0.23
+        Switzerland,1.683
+        Syria,0
+        Taiwan,1.692
+        Tajikistan,0
+        Tanzania,0.019
+        Thailand,4.543
+        The Bahamas,0.002
+        Timor-Leste,0
+        Togo,0.004
+        Tonga,0
+        Trinidad and Tobago,0.004
+        Tunisia,0.133
+        Turkey,2.818
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0.014
+        Uganda,0.061
+        Ukraine,0.74
+        United Arab Emirates,0.79
+        United Kingdom,11.525
+        United States,77.276459
+        Uruguay,0.269
+        Uzbekistan,0.005
+        Vanuatu,0.004
+        Venezuela,0.007
+        Vietnam,0.009
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0.194
+        Zambia,0.006
+        Zimbabwe,0.011
+wind electricity net generation (billion kWh),
+    World,1129.076062
+        Afghanistan,0
+        Albania,0
+        Algeria,0.008
+        American Samoa,0
+        Angola,0
+        Antarctica,0
+        Antigua and Barbuda,0
+        Argentina,0.616
+        Armenia,0.002
+        Aruba,0.132
+        Australia,12.597
+        Austria,6.239
+        Azerbaijan,0.022
+        Bahrain,0.001
+        Bangladesh,0.005
+        Barbados,0
+        Belarus,0.097
+        Belgium,6.388
+        Belize,0
+        Benin,0
+        Bermuda,0
+        Bhutan,0.001
+        Bolivia,0.06
+        Bosnia and Herzegovina,0.001
+        Botswana,0
+        Brazil,42.37
+        British Virgin Islands,0.001
+        Brunei,0
+        Bulgaria,1.5
+        Burkina Faso,0
+        Burma,0
+        Burundi,0
+        Cabo Verde,0.076
+        Cambodia,0.0003
+        Cameroon,0
+        Canada,28.49
+        Cayman Islands,0
+        Central African Republic,0
+        Chad,0.009
+        Chile,3.516
+        China,304.6
+        Colombia,0.003
+        Comoros,0
+        Congo-Brazzaville,0
+        Congo-Kinshasa,0
+        Cook Islands,0
+        Costa Rica,1.288
+        Croatia,1.2
+        Cuba,0.02
+        Cyprus,0.211
+        Czech Republic,0.582
+        Côte d’Ivoire,0
+        Denmark,14.78
+        Djibouti,0
+        Dominica,0.001
+        Dominican Republic,0.39
+        Ecuador,0.073
+        Egypt,2.57
+        El Salvador,0
+        Equatorial Guinea,0
+        Eritrea,0.002
+        Estonia,0.723
+        Eswatini,0
+        Ethiopia,0.86
+        Falkland Islands,0.009
+        Faroe Islands,0.06
+        Fiji,0.002
+        Finland,4.795
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,24.711
+        French Guiana,0
+        French Polynesia,0.0003
+        Gabon,0
+"        Gambia, The",0.0001
+        Georgia,0.088
+        Germany,103.707
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0
+        Gibraltar,0
+        Greece,5.537
+        Greenland,0
+        Grenada,0.001
+        Guadeloupe,0.051
+        Guam,0
+        Guatemala,0.218
+        Guinea,0
+        Guinea-Bissau,0
+        Guyana,0.0001
+        Haiti,0
+        Hawaiian Trade Zone,--
+        Honduras,0.578
+        Hong Kong,0.002
+        Hungary,0.737
+        Iceland,0.008
+        India,51.06
+        Indonesia,0.006
+        Iran,0.3
+        Iraq,0
+        Ireland,7.445
+        Israel,0.18
+        Italy,17.565
+        Jamaica,0.289
+        Japan,6.49
+        Jordan,0.45
+        Kazakhstan,0.339
+        Kenya,0.048
+        Kiribati,0
+        Kosovo,0.003
+        Kuwait,0.018
+        Kyrgyzstan,0
+        Laos,0
+        Latvia,0.149
+        Lebanon,0.006
+        Lesotho,0
+        Liberia,0
+        Libya,0
+        Lithuania,1.356
+        Luxembourg,0.235
+        Macau,0
+        Madagascar,0.001
+        Malawi,0
+        Malaysia,0
+        Maldives,0.002
+        Mali,0
+        Malta,0.0004
+        Martinique,0.001
+        Mauritania,0.104
+        Mauritius,0.015
+        Mexico,9.913
+        Micronesia,
+        Moldova,0.007
+        Mongolia,0.309
+        Montenegro,0.097
+        Montserrat,0
+        Morocco,3.035
+        Mozambique,0
+        Namibia,0.005
+        Nauru,0
+        Nepal,0.006
+        Netherlands,10.569
+        Netherlands Antilles,0.273
+        New Caledonia,0.045
+        New Zealand,2.12
+        Nicaragua,0.635
+        Niger,0
+        Nigeria,0.003
+        Niue,0
+        North Korea,0.001
+        North Macedonia,0.11
+        Northern Mariana Islands,
+        Norway,2.852
+        Oman,0
+        Pakistan,2.101
+        Palestinian Territories,0
+        Panama,0.49
+        Papua New Guinea,0
+        Paraguay,0
+        Peru,1.073
+        Philippines,1.094
+        Poland,14.574
+        Portugal,12.112
+        Puerto Rico,0.149
+        Qatar,0
+        Reunion,0.014
+        Romania,7.41
+        Russia,0.14
+        Rwanda,0
+        Saint Helena,0
+        Saint Kitts and Nevis,0.008
+        Saint Lucia,0
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0
+        Samoa,0.0002
+        Sao Tome and Principe,0
+        Saudi Arabia,0.005
+        Senegal,0
+        Serbia,0.048
+        Seychelles,0
+        Sierra Leone,0
+        Singapore,0
+        Slovakia,0.006
+        Slovenia,0.006
+        Solomon Islands,0
+        Somalia,0.006
+        South Africa,5.09
+        South Korea,2.168
+        South Sudan,0
+        Spain,47.929
+        Sri Lanka,0.365
+        Sudan,0
+        Suriname,0
+        Sweden,17.609
+        Switzerland,0.133
+        Syria,0
+        Taiwan,1.731
+        Tajikistan,0
+        Tanzania,0
+        Thailand,1.109
+        The Bahamas,0
+        Timor-Leste,0
+        Togo,0
+        Tonga,0
+        Trinidad and Tobago,0
+        Tunisia,0.449
+        Turkey,17.793
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0
+        Uganda,0
+        Ukraine,0.983
+        United Arab Emirates,0.001
+        United Kingdom,50.004
+        United States,254.302662
+        Uruguay,3.774
+        Uzbekistan,0
+        Vanuatu,0.005
+        Venezuela,0.09
+        Vietnam,0.323
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0
+        Zambia,0
+        Zimbabwe,0
+biomass and waste electricity net generation (billion kWh),
+    World,583.5482866
+        Afghanistan,0
+        Albania,0
+        Algeria,0
+        American Samoa,0
+        Angola,0.2
+        Antarctica,0
+        Antigua and Barbuda,0
+        Argentina,2.095
+        Armenia,0
+        Aruba,0.006
+        Australia,3.5
+        Austria,5.506
+        Azerbaijan,0.17
+        Bahrain,0
+        Bangladesh,0.008
+        Barbados,0
+        Belarus,0.195
+        Belgium,7.159
+        Belize,0.12
+        Benin,0
+        Bermuda,0
+        Bhutan,0
+        Bolivia,0.268
+        Bosnia and Herzegovina,0.041
+        Botswana,0
+        Brazil,52.255
+        British Virgin Islands,0
+        Brunei,0
+        Bulgaria,0.396
+        Burkina Faso,0.001
+        Burma,0.014
+        Burundi,0.007
+        Cabo Verde,0
+        Cambodia,0.052
+        Cameroon,0.003
+        Canada,7.35
+        Cayman Islands,0
+        Central African Republic,0
+        Chad,0
+        Chile,6.062
+        China,79.474
+        Colombia,1.423
+        Comoros,0
+        Congo-Brazzaville,0
+        Congo-Kinshasa,0.02
+        Cook Islands,0
+        Costa Rica,0.184
+        Croatia,0.526
+        Cuba,0.622
+        Cyprus,0.052
+        Czech Republic,5.058
+        Côte d’Ivoire,0.173
+        Denmark,7.09
+        Djibouti,0
+        Dominica,0
+        Dominican Republic,0.153
+        Ecuador,0.459
+        Egypt,0.305
+        El Salvador,0.716
+        Equatorial Guinea,0
+        Eritrea,0
+        Estonia,1.179
+        Eswatini,0.202
+        Ethiopia,0.028
+        Falkland Islands,0
+        Faroe Islands,0
+        Fiji,0.062
+        Finland,12.336
+        Former Czechoslovakia,--
+        Former Serbia and Montenegro,--
+        Former U.S.S.R.,--
+        Former Yugoslavia,--
+        France,10.172
+        French Guiana,0.01
+        French Polynesia,0
+        Gabon,0.011
+"        Gambia, The",0
+        Georgia,0
+        Germany,58.22
+"        Germany, East",--
+"        Germany, West",--
+        Ghana,0.019
+        Gibraltar,0
+        Greece,0.31
+        Greenland,0
+        Grenada,0
+        Guadeloupe,0.066
+        Guam,0
+        Guatemala,2.508
+        Guinea,0
+        Guinea-Bissau,0
+        Guyana,0.03
+        Haiti,0
+        Hawaiian Trade Zone,--
+        Honduras,0.752
+        Hong Kong,0.107
+        Hungary,2.342
+        Iceland,0
+        India,45.431
+        Indonesia,0.829
+        Iran,0.024
+        Iraq,0
+        Ireland,0.889
+        Israel,0.0004
+        Italy,21.852
+        Jamaica,0.261
+        Japan,40.931
+        Jordan,0.004
+        Kazakhstan,0.048
+        Kenya,0.126
+        Kiribati,0
+        Kosovo,0
+        Kuwait,0
+        Kyrgyzstan,0
+        Laos,0.005
+        Latvia,0.93
+        Lebanon,0
+        Lesotho,0
+        Liberia,0
+        Libya,0
+        Lithuania,0.587
+        Luxembourg,0.248
+        Macau,0
+        Madagascar,0.001
+        Malawi,0.053
+        Malaysia,0.839
+        Maldives,0
+        Mali,0.052
+        Malta,0.01
+        Martinique,0.025
+        Mauritania,0
+        Mauritius,0.48
+        Mexico,2.164
+        Micronesia,
+        Moldova,0.023
+        Mongolia,0
+        Montenegro,0
+        Montserrat,0
+        Morocco,0.013
+        Mozambique,0.061
+        Namibia,0
+        Nauru,0
+        Nepal,0
+        Netherlands,6.287
+        Netherlands Antilles,0
+        New Caledonia,0
+        New Zealand,0.586
+        Nicaragua,0.666
+        Niger,0
+        Nigeria,0.025
+        Niue,0
+        North Korea,0
+        North Macedonia,0.052
+        Northern Mariana Islands,
+        Norway,0.498
+        Oman,0
+        Pakistan,3.069
+        Palestinian Territories,0.001
+        Panama,0.032
+        Papua New Guinea,0.039
+        Paraguay,0.139
+        Peru,1.032
+        Philippines,1.012
+        Poland,6.801
+        Portugal,3.504
+        Puerto Rico,0.011
+        Qatar,0.115
+        Reunion,0.274
+        Romania,0.525
+        Russia,2.678
+        Rwanda,0.002
+        Saint Helena,0
+        Saint Kitts and Nevis,0
+        Saint Lucia,0
+        Saint Pierre and Miquelon,0
+        Saint Vincent/Grenadines,0
+        Samoa,0
+        Sao Tome and Principe,0
+        Saudi Arabia,0
+        Senegal,0.068
+        Serbia,0.08
+        Seychelles,0
+        Sierra Leone,0.004
+        Singapore,1.454
+        Slovakia,1.721
+        Slovenia,0.299
+        Solomon Islands,0.004
+        Somalia,0
+        South Africa,0.297
+        South Korea,6.898
+        South Sudan,0
+        Spain,6.85
+        Sri Lanka,0.067
+        Sudan,0.117
+        Suriname,0.006
+        Sweden,13.757
+        Switzerland,3.105
+        Syria,0.033
+        Taiwan,3.469
+        Tajikistan,0
+        Tanzania,0.021
+        Thailand,15.442
+        The Bahamas,0
+        Timor-Leste,0
+        Togo,0.005
+        Tonga,0
+        Trinidad and Tobago,0
+        Tunisia,0
+        Turkey,2.124
+        Turkmenistan,0
+        Turks and Caicos Islands,0
+        Tuvalu,
+        U.S. Pacific Islands,0
+        U.S. Territories,
+        U.S. Virgin Islands,0
+        Uganda,0.227
+        Ukraine,0.21
+        United Arab Emirates,0.006
+        United Kingdom,36.023
+        United States,75.85778656
+        Uruguay,1.847
+        Uzbekistan,0
+        Vanuatu,0.0001
+        Venezuela,0
+        Vietnam,0.076
+        Wake Island,0
+        Western Sahara,0
+        Yemen,0
+        Zambia,0.078
+        Zimbabwe,0.151
