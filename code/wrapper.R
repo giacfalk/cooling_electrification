@@ -56,7 +56,7 @@ max_hrs_permonth_fan_use = 480
 source("code/data_process_2.R", echo=T)
 
 # generate Figures 1-2-3
-source("code/figures123.R", echo=T)
+#source("code/figures123.R", echo=T)
 
 # estimate power requirements
 source("code/electricity.R", echo=T)
@@ -65,6 +65,11 @@ source("code/electricity.R", echo=T)
 source("code/emissions.R", echo=T)
 
 # Sensitivity analysis
+T_base_sens = c(22, 24, 28, 26)
+EER_urban_sens = c(2.2, 3.2, 2.9)
+EER_rural_sens = c(2, 2.9, 2.2)
+
 source("code/sensitivity.R", echo=T)
 
+#source("code/sensitivity_summary_figure.R", echo=T)
 
