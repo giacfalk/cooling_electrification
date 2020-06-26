@@ -1,16 +1,25 @@
 #calculate kwh to meet CDDs #
-
-# # define urban_rural
+# 
 # urbrur = raster('GHS_SMOD_POP2015_GLOBE_R2019A_54009_1K_V2_0.tif')
 # 
-# getmode <- function(v, na.rm=TRUE) {
-#   ifelse(30 %in% v, 1, 0)
-# }
+# template <- raster('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Anteneh/nodatamask_1.ASC')
 # 
-# #
-# urbrur <- aggregate(urbrur, fact=60.0024, fun=getmode, na.rm=TRUE)
+# template_pol <- rasterToPolygons(template)
+# template_pol = st_as_sf(template_pol)
+# st_crs(template_pol)<-4326
+# 
+# template_pol$urbrur = exactextractr::exact_extract(urbrur, template_pol, fun="mean")
+# 
+# template_pol$urbrur = ifelse(template_pol$urbrur>11.5, 1, 0)
+# 
+# library(fasterize)
+# urbrur <- fasterize(template_pol, template, field="urbrur", fun="first")
+# 
+# plot(urbrur)
+# crs(urbrur)<-"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 # 
 # writeRaster(urbrur, "D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/urbrur.tif", overwrite=T)
+# 
 
 urbrur<-raster("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/urbrur.tif")
 
@@ -67,9 +76,7 @@ values(hoursheatday_im) = ifelse(values(hoursheatday_im)<0, 0, values(hoursheatd
 DeltaT_im = scenario_climate
 
 Q_im = list()
-urbrur = projectRaster(urbrur, DeltaT_im)
-values(urbrur) = ifelse(values(urbrur)<0.5, 0, values(urbrur))
-values(urbrur) = ifelse(values(urbrur)>=0.5, 1, values(urbrur))
+urbrur = projectRaster(urbrur, DeltaT_im, method = "ngb")
 
 Q_im <- overlay(urbrur, DeltaT_im, fun=Vectorize(function(x,y){
   y[x==0] <- 29*(avg_house_volume_rural* m3toliters /24)*y
@@ -81,14 +88,12 @@ Q_im = stack(Q_im)
 
 AChours_im = list()
 
-urbrur = projectRaster(urbrur, Q_im)
-values(urbrur) = ifelse(values(urbrur)<0.5, 0, values(urbrur))
-values(urbrur) = ifelse(values(urbrur)>=0.5, 1, values(urbrur))
+urbrur = projectRaster(urbrur, Q_im, method = "ngb")
 
 # hours of peak load of compressor in each month i  
 AChours_im= overlay(urbrur, Q_im, fun=Vectorize(function(x,y){
-  y[x==1] = (y/(CC_urban*cooling_ton_to_kw*kw_to_j_per_hour))*heating_loss_factor_urban
-  y[x==0] = (y/(CC_rural*cooling_ton_to_kw*kw_to_j_per_hour))*heating_loss_factor_rural
+  y[x==1] = (y/(CC_urban*cooling_ton_to_kw*kw_to_j_per_hour))
+  y[x==0] = (y/(CC_rural*cooling_ton_to_kw*kw_to_j_per_hour))
   return(y)
 }))
 
@@ -100,10 +105,10 @@ AChours_im = projectRaster(AChours_im, urbrur)
 values(AChours_im) = ifelse(values(AChours_im)<0, 0, values(AChours_im))
 
 # compressor runs 100% of the time when bringing temperature to desired temperature
-# compressor runs 60% of the time when keeping temperature steady
-ACconsumption_im_hh = overlay(urbrur, AChours_im, hoursheatday_im, fun=Vectorize(function(x,y, z){
-  y[x==1] = (((CC_urban*cooling_ton_to_kw) / EER_urban) * (y)) + (((CC_urban*cooling_ton_to_kw) / EER_urban) * (z) * 0.6)
-  y[x==0] = (((CC_rural*cooling_ton_to_kw) / EER_urban) * (y)) +  (((CC_rural*cooling_ton_to_kw) / EER_urban) * (z) * 0.6)
+# compressor runs x% of the time when keeping temperature steady (see window_heat_gain.R)
+ACconsumption_im_hh = overlay(urbrur, AChours_im, hoursheatday_im, compressor_share_time_on_urban, compressor_share_time_on_rural, fun=Vectorize(function(x,y, z, k, l){
+  y[x==1] = (((CC_urban*cooling_ton_to_kw) / EER_urban) * (y)) + (((CC_urban*cooling_ton_to_kw) / EER_urban) * (z) * k)
+  y[x==0] = (((CC_rural*cooling_ton_to_kw) / EER_rural) * (y)) +  (((CC_rural*cooling_ton_to_kw) / EER_rural) * (z) * l)
   return(y)
 }))
 
