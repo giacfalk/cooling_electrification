@@ -122,7 +122,7 @@ lorenz_data = lorenz_data[!is.na(lorenz_data$continent), ]
 
 lorenz = ggplot(subset(lorenz_data, lorenz_data$layer.1>0)) + 
   theme_classic()+ 
-  gglorenz::stat_lorenz(aes(layer.1, group=as.factor(continent), colour=as.factor(continent)), size=1.5)+
+  gglorenz::stat_lorenz(aes(layer.1, group=as.factor(continent), colour=as.factor(continent)), size=1, alpha=0.75)+
   xlab("Cumulative fraction of the population without access")+
   ylab("Cumulative fraction of the total CDDs \n (weighted by pop. without access)")+
   geom_abline(linetype = "dashed") +
@@ -131,6 +131,6 @@ lorenz = ggplot(subset(lorenz_data, lorenz_data$layer.1>0)) +
   scale_y_continuous(labels = scales::percent_format())+
   scale_color_brewer(name="Region", palette = "Set1")
 
-ggsave("Figure 3.png", lorenz, device = "png", scale=1.75)
+ggsave("Figure 3.png", lorenz, device = "png", scale=1)
 
 
