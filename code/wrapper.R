@@ -1,4 +1,9 @@
-#Wrapper
+# Wrapper for:
+# Latent residential air cooling demand and universal household electrification 
+# Giacomo Falchetta
+# 16/07/2020
+
+# install.packages(c("tidyverse", "reshape2", "lubridate", "raster", "sf", "exactextractr", "countrycode", "rasterVis", "maps", "mapdata", "maptools", "rgdal", "gglorenz", "fasterize", "viridis", "data.table", "oce", "osc", "lutz", "suncalc", "rstudioapi", "cowplot"))
 
 library(tidyverse)
 library(reshape2)
@@ -20,6 +25,8 @@ library(oce)
 library(osc)
 library(lutz)
 library(suncalc)
+library(rstudioapi)
+library(cowplot)
 
 setwd('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA')
 
@@ -73,12 +80,15 @@ source("code/electricity.R", echo=T)
 # estimate co2 emissions
 source("code/emissions.R", echo=T)
 
+# Supply-side electrification analysis for SSA
+source("code/electrification_analysis.R", echo=T)
+
 # Sensitivity analysis
 T_base_sens = c(22, 24, 28, 26)
 EER_urban_sens = c(2.2, 3.2, 2.9)
 EER_rural_sens = c(2, 2.9, 2.2)
 
 source("code/sensitivity.R", echo=T)
+source("code/sensitivity_summary_figure.R", echo=T)
 
-#source("code/sensitivity_summary_figure.R", echo=T)
 
