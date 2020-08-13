@@ -90,8 +90,8 @@ for scenario in Scenarios:
 
     # RUN_PARAM: Fill in general and technology specific parameters (e.g. discount rate, losses etc.)
     #https://www.nrel.gov/docs/fy19osti/72509.pdf
-	#https://europa.eu/capacity4dev/public-energy/wiki/sustainable-energy-handbook
-	Technology.set_default_values(base_year=start_year,
+    #https://europa.eu/capacity4dev/public-energy/wiki/sustainable-energy-handbook
+    Technology.set_default_values(base_year=start_year,
                                   start_year=start_year,
                                   end_year=end_year,
                                   discount_rate=0.175)
@@ -112,7 +112,7 @@ for scenario in Scenarios:
                                base_to_peak_load_ratio=0.85,
                                capacity_factor=0.6,
                                tech_life=30,
-                               capital_cost=4500,
+                               capital_cost=4000,
                                om_costs=0.02)
 
     mg_wind_calc = Technology(om_of_td_lines=0.02,
@@ -133,23 +133,23 @@ for scenario in Scenarios:
 
     sa_pv_calc = Technology(base_to_peak_load_ratio=0.9,
                             tech_life=15,
-                            om_costs=0.02,
-                            capital_cost={0.020: 6500 * pv_capital_cost_adjust,
-                                          0.050: 6000 * pv_capital_cost_adjust,
-                                          0.100: 5500 * pv_capital_cost_adjust,
+                            om_costs=0.02, #https://www.africa50.com/fileadmin/uploads/africa50/Documents/Knowledge_Center/IRENA_Solar_PV_Costs_Africa_2016.pdf
+                            capital_cost={0.020: 9000 * pv_capital_cost_adjust,
+                                          0.050: 7500 * pv_capital_cost_adjust,
+                                          0.100: 6000 * pv_capital_cost_adjust,
                                           1: 5000 * pv_capital_cost_adjust,
                                           5: 4250 * pv_capital_cost_adjust},
                             standalone=True)
 
     mg_diesel_calc = Technology(om_of_td_lines=0.02,
                                 distribution_losses=0.05,
-                                connection_cost_per_hh=25,
+                                connection_cost_per_hh=20,
                                 base_to_peak_load_ratio=0.85,
                                 capacity_factor=0.7,
                                 tech_life=15,
                                 om_costs=0.1,
                                 efficiency=0.33,
-                                capital_cost=800,
+                                capital_cost=900,
                                 diesel_price=diesel_price,
                                 diesel_truck_consumption=33.7,
                                 diesel_truck_volume=15000)
@@ -167,7 +167,7 @@ for scenario in Scenarios:
 
     pv_diesel_hyb = Technology(om_of_td_lines=0.03,
                                distribution_losses=0.05,
-                               connection_cost_per_hh=100,
+                               connection_cost_per_hh=20,
                                base_to_peak_load_ratio=0.5,
                                tech_life=15,
                                diesel_price=diesel_price,

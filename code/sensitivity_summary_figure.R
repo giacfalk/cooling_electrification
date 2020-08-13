@@ -10,6 +10,10 @@ kwh_sens$Scenario <- ifelse(kwh_sens$.id==2, "24", kwh_sens$Scenario)
 kwh_sens$Scenario <- ifelse(kwh_sens$.id==3, "26", kwh_sens$Scenario)
 kwh_sens$Scenario <- ifelse(kwh_sens$.id==4, "28", kwh_sens$Scenario)
 
+levels(kwh_sens$id) <- c("Baseline", "SSP245", "SSP370")
+
+levels(kwh_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+
 a =ggplot(kwh_sens)+
   theme_classic()+
   geom_bar(data = kwh_sens, aes(x = id, y = twh, fill=Scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
@@ -17,7 +21,8 @@ a =ggplot(kwh_sens)+
   scale_fill_brewer(name="Tbase", palette = "Set1")+
   ylab('TWh/year')+
   xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)
+  facet_wrap(~ scenario, ncol=2)+
+  ggtitle("Constant EERs: 2.9 urban, 2.2 rural")
 
 kwh_sens <- list.files(path = 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/sensitivity_kwh/eer', full.names = T)
 kwh_sens <- lapply(kwh_sens, read.csv)
@@ -28,6 +33,11 @@ kwh_sens$Scenario <- ifelse(kwh_sens$.id==1, "2.2U, 2R", kwh_sens$Scenario)
 kwh_sens$Scenario <- ifelse(kwh_sens$.id==2, "2.9U, 2.2R", kwh_sens$Scenario)
 kwh_sens$Scenario <- ifelse(kwh_sens$.id==3, "3.2U, 2.9R", kwh_sens$Scenario)
 
+levels(kwh_sens$id) <- c("Baseline", "SSP245", "SSP370")
+
+levels(kwh_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+
+
 b =ggplot(kwh_sens)+
   theme_classic()+
   geom_bar(data = kwh_sens, aes(x = id, y = twh, fill=Scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
@@ -35,7 +45,8 @@ b =ggplot(kwh_sens)+
   scale_fill_brewer(name="EERs", palette = "Set1")+
   ylab('TWh/year')+
 xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)
+  facet_wrap(~ scenario, ncol=2)+
+  ggtitle("Constant Tbase: 26 C°")
 
 ##
 
@@ -50,6 +61,10 @@ co2_sens$Scenario <- ifelse(co2_sens$.id==2, "24", co2_sens$Scenario)
 co2_sens$Scenario <- ifelse(co2_sens$.id==3, "26", co2_sens$Scenario)
 co2_sens$Scenario <- ifelse(co2_sens$.id==4, "28", co2_sens$Scenario)
 
+levels(co2_sens$id) <- c("Baseline", "SSP245", "SSP370")
+
+levels(co2_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+
 c =ggplot(co2_sens)+
   theme_classic()+
   geom_bar(data = co2_sens, aes(x = id, y = co2, fill=Scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
@@ -57,7 +72,9 @@ c =ggplot(co2_sens)+
   scale_fill_brewer(name="Tbase", palette = "Set1")+
   ylab("Mt CO2/year")+
   xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)
+  facet_wrap(~ scenario, ncol=2)+
+  ggtitle("Constant EERs: 2.9 urban, 2.2 rural")
+
 
 co2_sens <- list.files(path = 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/sensitivity_co2/eer', full.names = T)
 co2_sens <- lapply(co2_sens, read.csv)
@@ -68,6 +85,10 @@ co2_sens$Scenario <- ifelse(co2_sens$.id==1, "2.2U, 2R", co2_sens$Scenario)
 co2_sens$Scenario <- ifelse(co2_sens$.id==2, "2.9U, 2.2R", co2_sens$Scenario)
 co2_sens$Scenario <- ifelse(co2_sens$.id==3, "3.2U, 2.9R", co2_sens$Scenario)
 
+levels(co2_sens$id) <- c("Baseline", "SSP245", "SSP370")
+
+levels(co2_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+
 d =ggplot(co2_sens)+
   theme_classic()+
   geom_bar(data = co2_sens, aes(x = id, y = co2, fill=Scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
@@ -75,7 +96,8 @@ d =ggplot(co2_sens)+
   scale_fill_brewer(name="EERs", palette = "Set1")+
   ylab("Mt CO2/year")+
   xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)
+  facet_wrap(~ scenario, ncol=2)+
+  ggtitle("Constant Tbase: 26 C°")
 
 cowplot::plot_grid(a, b, ncol = 1, labels = "AUTO")
 ggsave("kwh.png", last_plot(), scale=1.5, height = 5, width = 4)

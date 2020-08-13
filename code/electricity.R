@@ -61,6 +61,8 @@ k=1
 
 for (scenario_climate in scenarios){
 
+RCP <- ifelse(k==1, "baseline", ifelse(k==2, "245", "370"))  
+
 urbrur<-raster("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/urbrur.tif")
 
 mean_CDDs <- calc(scenario_climate, fun = mean, na.rm = T)
@@ -187,6 +189,8 @@ FAN_demanding_share_S1 <- FAN_demanding_pop_S1 / (AC_demanding_pop_S1 + FAN_dema
 kwh_S1 = FANconsumption_i * FAN_demanding_share_S1 + ACconsumption_i * AC_demanding_share_S1
 world$kwh_S1 = exact_extract(kwh_S1, world, 'sum')
 
+writeRaster(kwh_S1, paste0("kwh_S1_", RCP, ".tif"), overwrite=T)
+
 # # Scenario 2: AC to 100% urban households and 40% wealthiest households in rural
 AC_demanding_pop_S2 <- merge(pop_urban/hhsize_raster*(q1+q2+q3+q4+q5)/100, pop_rural/hhsize_raster*(q4+q5)/100)
 values(AC_demanding_pop_S2) <- ifelse(values(pop_urban)>0 & is.na(values(q3)), values(pop_urban/hhsize_raster*1), values(AC_demanding_pop_S2))
@@ -196,6 +200,8 @@ AC_demanding_share_S2 <- AC_demanding_pop_S2 / (AC_demanding_pop_S2 + FAN_demand
 FAN_demanding_share_S2 <- FAN_demanding_pop_S2 / (AC_demanding_pop_S2 + FAN_demanding_pop_S2)
 kwh_S2 = FANconsumption_i * FAN_demanding_share_S2 + ACconsumption_i * AC_demanding_share_S2
 world$kwh_S2 = exact_extract(kwh_S2, world, 'sum')
+
+writeRaster(kwh_S2, paste0("kwh_S2_", RCP, ".tif"), overwrite=T)
 
 # # Scenario 3 (benchmark): all AC
 AC_demanding_pop_S3 <- merge(pop_urban/hhsize_raster*(q1+q2+q3+q4+q5)/100, pop_rural/hhsize_raster*(q1+q2+q3+q4+q5)/100)
@@ -207,6 +213,8 @@ FAN_demanding_share_S3 <- FAN_demanding_pop_S3 / (AC_demanding_pop_S3 + FAN_dema
 kwh_S3 = FANconsumption_i * FAN_demanding_share_S3 + ACconsumption_i * AC_demanding_share_S3
 world$kwh_S3 = exact_extract(kwh_S3, world, 'sum')
 
+writeRaster(kwh_S3, paste0("kwh_S3_", RCP, ".tif"), overwrite=T)
+
 # # Scenario 4 (benchmark): all fan
 AC_demanding_pop_S4 <- merge(pop_urban/hhsize_raster*(0)/100, pop_rural/hhsize_raster*(0)/100)
 values(AC_demanding_pop_S4) <- ifelse(values(pop_urban)>0 & is.na(values(q3)), values(pop_urban/hhsize_raster*0), values(AC_demanding_pop_S4))
@@ -216,6 +224,8 @@ AC_demanding_share_S4 <- AC_demanding_pop_S4 / (AC_demanding_pop_S4 + FAN_demand
 FAN_demanding_share_S4 <- FAN_demanding_pop_S4 / (AC_demanding_pop_S4 + FAN_demanding_pop_S4)
 kwh_S4 = FANconsumption_i * FAN_demanding_share_S4 + ACconsumption_i * AC_demanding_share_S4
 world$kwh_S4 = exact_extract(kwh_S4, world, 'sum')
+
+writeRaster(kwh_S4, paste0("kwh_S4_", RCP, ".tif"), overwrite=T)
 
 # melt by scenario
 world_out = gather(world, "scenario", "kwh", kwh_S1, kwh_S2, kwh_S3, kwh_S4)
@@ -229,7 +239,7 @@ gc()
 
 world = rbindlist(all_results, idcol = T)
 world$id = world$.id
-world$id = ifelse(world$id==1, "Baseline", ifelse(world$id==2, "RCP245", "RCP370"))
+world$id = ifelse(world$id==1, "Baseline", ifelse(world$id==2, "SSP245", "SSP370"))
 
 world = subset(world, world$kwh!=0)
 
@@ -252,22 +262,42 @@ kwh_country = ggplot() +
   ggtitle("Yearly electricity consumption (TWh)")+
   facet_wrap(~ scenario, ncol=2)
 
-ggsave(paste0("kwh_region_", base_temp, ".png"), kwh_country, device="png")
+ggsave(paste0("kwh_region_", base_temp, ".png"), kwh_country, device="png", height = 6, scale=0.8)
 
 write.csv(world_plot, paste0("power_consumpion_", base_temp, "_", EER_urban, "_", EER_rural, ".csv"))
 
+my.at <- c(125, 250, 375, 500, 750, 1000, 1250, 1500, 2000, Inf)
 
-# world$noacc18 = exact_extract(noacc18, world, 'sum')
-# world$kwhcapita = world$kwh/world$noacc18
-# 
-# kwh_map = ggplot() +
-#   theme_classic()+
-#   geom_sf(data = world, aes(fill = kwh/noacc18)) +
-#   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
-#   scale_fill_viridis_b(name = "kWh/person without electricity access", trans="log")+
-#   #ggtitle("")+
-#   ylab("Latitude")+
-#   xlab("Longitude")+
-#   facet_wrap(~ scenario, ncol=2)
+myColorkey <- list(at=my.at, ## where the colors change
+                   labels=list(
+                     labels=my.at, ## labels
+                     at=my.at ## where to print labels
+                   ))
 
-#ggsave("kwh_map.png", kwh_map, device="png")
+pal <- brewer.pal(9,"YlOrRd")
+mapTheme <- rasterTheme(region = pal)
+
+
+p <- raster("kwh_S2_baseline.tif") / HHs_raster
+
+png("kwh_S2_baseline_plot.png", width=1200, height=1000, res=150)
+print(levelplot(p, xlim=c(-100, 180), ylim=c(-40, 45),
+                main="Avg. yearly cooling electricity need / HH, base T 26° C, 2041-2060, baseline, S2", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
+dev.off()
+
+p <- raster("kwh_S2_245.tif") / HHs_raster
+
+png("kwh_S2_245_plot.png", width=1200, height=1000, res=150)
+print(levelplot(p, xlim=c(-100, 180), ylim=c(-40, 45),
+                main="Avg. yearly cooling electricity need / HH, base T 26° C, 2041-2060, SSP245, S2", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
+dev.off()
+
+
+p <- raster("kwh_S2_370.tif") / HHs_raster
+
+png("kwh_S2_370_plot.png", width=1200, height=1000, res=150)
+print(levelplot(p, xlim=c(-100, 180), ylim=c(-40, 45),
+                main="Avg. yearly cooling electricity need / HH, base T 26° C, 2041-2060, SSP370, S2", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
+dev.off()
+
+

@@ -7,23 +7,46 @@ names(overlay_current) <- month.abb
 names(overlay_245) <- month.abb
 names(overlay_370) <- month.abb
 
-png("CDD_today.png", width=1600, height=800, res=150)
+png("CDD_today.png", width=1200, height=1600, res=150)
 print(levelplot(overlay_current, xlim=c(-100, 180), ylim=c(-40, 45),
-                main="CDDs in areas without electr. access, base T 26° C, 1970-2000", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude") + layer(sp.polygons(bPols)))
+                main="CDDs in areas without electr. access, base T 26° C, 1970-2000", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
 
-
-
 #1B map of RCP2.6 CDDs among unelectrified
-png("CDD_245.png", width=1600, height=800, res=150)
-print(levelplot(overlay_245, xlim=c(-100, 180), ylim=c(-40, 45),
-                main="CDDs in areas without electr. access, base T 26° C, 2041-2060, SSP245", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude") + layer(sp.polygons(bPols)))
+
+overlay_245/overlay_current -> overlay_245_change
+values(overlay_245_change) <- ifelse(values(overlay_245_change)>3.5, 3.5, values(overlay_245_change))
+overlay_245_change <- stack(overlay_245_change)
+names(overlay_245_change) <- month.abb
+
+overlay_370/overlay_current -> overlay_370_change
+values(overlay_370_change) <- ifelse(values(overlay_370_change)>3.5, 3.5, values(overlay_370_change))
+overlay_370_change <- stack(overlay_370_change)
+names(overlay_370_change) <- month.abb
+
+my.at <- c(0.5, 1, 1.5, 2, 2.5, 3, 3.5)
+
+myColorkey <- list(at=my.at, ## where the colors change
+                   labels=list(
+                     labels=c("-50%", "0%", "+50%", "+100%", "+150%", "+200%", "+250%"), ## labels
+                     at=my.at ## where to print labels
+                   ))
+
+
+pal <- brewer.pal(6,"YlOrRd")
+pal[1] <- "#a1ebed"
+pal[2] <- "#f2f5f5"
+mapTheme <- rasterTheme(region = pal)
+
+png("CDD_245.png", width=1200, height=1600, res=150)
+print(levelplot(overlay_245_change, xlim=c(-100, 180), ylim=c(-40, 45),
+                main="% change in CDDs in areas without electr. access, base T 26° C, 2041-2060, SSP245", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
 
 #1C map of RCP4.5 CDDs among unelectrified
-png("CDD_370.png", width=1600, height=800, res=150)
-print(levelplot(overlay_370, xlim=c(-100, 180), ylim=c(-40, 45),
-                main="CDDs in areas without electr. access, base T 26° C, 2041-2060, SSP370", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude") + layer(sp.polygons(bPols)))
+png("CDD_370.png", width=1200, height=1600, res=150)
+print(levelplot(overlay_370_change, xlim=c(-100, 180), ylim=c(-40, 45),
+                main="% change in CDDs in areas without electr. access, base T 26° C, 2041-2060, SSP370", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
 
 ###
@@ -73,7 +96,7 @@ deficit_bar_rel = ggplot() +
   theme(axis.text.x = element_text(angle = 90, size=8), legend.position="none", plot.title = element_text(hjust = 0.5))+
   scale_fill_discrete(name = "Region")+
   #ggtitle("")+
-  ylab("CDDs per person \nwithout access")+
+  ylab("CDDs per person \nwithout electr. access")+
   xlab("")
 
 #2C country-level relative change in CDDs per capita for unelectrified due to climate change
@@ -91,46 +114,44 @@ change_bar_abs = ggplot() +
 
 legend = cowplot::get_legend(change_bar_abs)
 
-ggsave("Figure 2.png", cowplot::plot_grid(cowplot::plot_grid(deficit_bar_abs, deficit_bar_rel, change_bar_abs + theme(legend.position = "none"), labels = "AUTO", ncol = 1), legend, ncol = 1, rel_heights = c(1, 0.1)), device = "png", scale=1.7, height = 5, width = 4)
+ggsave("Figure 2.png", cowplot::plot_grid(cowplot::plot_grid(deficit_bar_abs, deficit_bar_rel, change_bar_abs + theme(legend.position = "none"), labels = "AUTO", ncol = 1), legend, ncol = 1, rel_heights = c(1, 0.1)), device = "png", scale=1.7, height = 5.05, width = 4)
 
-# Figue 3: lorenz curve
-CDDs_year <-sum(overlay_current, na.rm = T)
-lorenz_data <- stack(noacc18, CDDs_year, world_raster)
-
-lorenz_data <- as.data.frame(getValues(lorenz_data))
-
-lorenz_data = group_by(lorenz_data, layer.2) %>% mutate(layer.1 = layer.1*(noacc18/sum(noacc18, na.rm=T)))
-
-# parse country numbers to ISO codes
-
-world_merger <- world %>%  dplyr::select(id, GID_0)
-world_merger$geometry = NULL
-lorenz_data<-merge(lorenz_data, world_merger, by.x="layer.2", by.y="id", all.x=T)
-
-# select key countries
-lorenz_data_global <- lorenz_data
-lorenz_data_global$GID_0 <- "Global"
-
-lorenz_data <- rbind(lorenz_data, lorenz_data_global)
-
-lorenz_data$continent = countrycode(lorenz_data$GID_0, "iso3c", "continent")
-lorenz_data$continent = ifelse(lorenz_data$GID_0 == "Global", "Global", lorenz_data$continent)
-
-lorenz_data$global <- ifelse(lorenz_data$continent == "Global", 1, 0)
-
-lorenz_data = lorenz_data[!is.na(lorenz_data$continent), ]
-
-lorenz = ggplot(subset(lorenz_data, lorenz_data$layer.1>0)) + 
-  theme_classic()+ 
-  gglorenz::stat_lorenz(aes(layer.1, group=as.factor(continent), colour=as.factor(continent)), size=1, alpha=0.75)+
-  xlab("Cumulative fraction of the population without access")+
-  ylab("Cumulative fraction of the total CDDs \n (weighted by pop. without access)")+
-  geom_abline(linetype = "dashed") +
-  theme_minimal()+
-  scale_x_continuous(labels = scales::percent_format())+
-  scale_y_continuous(labels = scales::percent_format())+
-  scale_color_brewer(name="Region", palette = "Set1")
-
-ggsave("Figure 3.png", lorenz, device = "png", scale=1)
-
-
+# # Figue 3: lorenz curve
+# CDDs_year <-sum(overlay_current, na.rm = T)
+# lorenz_data <- stack(noacc18, CDDs_year, world_raster)
+# 
+# lorenz_data <- as.data.frame(getValues(lorenz_data))
+# 
+# lorenz_data = group_by(lorenz_data, layer.2) %>% mutate(layer.1 = layer.1*(noacc18/sum(noacc18, na.rm=T)))
+# 
+# # parse country numbers to ISO codes
+# 
+# world_merger <- world %>%  dplyr::select(id, GID_0)
+# world_merger$geometry = NULL
+# lorenz_data<-merge(lorenz_data, world_merger, by.x="layer.2", by.y="id", all.x=T)
+# 
+# # select key countries
+# lorenz_data_global <- lorenz_data
+# lorenz_data_global$GID_0 <- "Global"
+# 
+# lorenz_data <- rbind(lorenz_data, lorenz_data_global)
+# 
+# lorenz_data$continent = countrycode(lorenz_data$GID_0, "iso3c", "continent")
+# lorenz_data$continent = ifelse(lorenz_data$GID_0 == "Global", "Global", lorenz_data$continent)
+# 
+# lorenz_data$global <- ifelse(lorenz_data$continent == "Global", 1, 0)
+# 
+# lorenz_data = lorenz_data[!is.na(lorenz_data$continent), ]
+# 
+# lorenz = ggplot(subset(lorenz_data, lorenz_data$layer.1>0)) + 
+#   theme_classic()+ 
+#   gglorenz::stat_lorenz(aes(layer.1, group=as.factor(continent), colour=as.factor(continent)), size=1, alpha=0.75)+
+#   xlab("Cumulative fraction of the population without access")+
+#   ylab("Cumulative fraction of the total CDDs \n (weighted by pop. without access)")+
+#   geom_abline(linetype = "dashed") +
+#   theme_minimal()+
+#   scale_x_continuous(labels = scales::percent_format())+
+#   scale_y_continuous(labels = scales::percent_format())+
+#   scale_color_brewer(name="Region", palette = "Set1")
+# 
+# ggsave("Figure 3.png", lorenz, device = "png", scale=1)

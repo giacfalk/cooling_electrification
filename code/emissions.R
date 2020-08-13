@@ -146,6 +146,20 @@ co2_region = ggplot() +
   ggtitle("Yearly CO2 emissions (Mt CO2)")+
   facet_wrap(~ scenario, ncol=2)
 
-ggsave(paste0("co2_region_", base_temp, ".png"), co2_region, device="png")
+ggsave(paste0("co2_region_", base_temp, ".png"), co2_region, device="png", height = 6, scale=0.8)
 
 write.csv(world_plot, paste0("co2_emissions_", base_temp, "_", EER_urban, "_", EER_rural, ".csv"))
+
+co2_country = ggplot() +
+  theme_classic()+
+  geom_bar(data = countries[which(countries$co2>1000000000000),], aes(x = GID_0 , y = co2/1000000000000, fill=id), stat="sum", position = "dodge", show.legend=c(size=FALSE)) +
+  theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
+  scale_fill_brewer(name="Scenario", palette = "Set1")+
+  ylab("Yearly CO2 emissions (Mt CO2)")+
+  xlab("Country")+
+  ggtitle("Top countries by potential cooling emissions \nfrom households without electricty")+
+  facet_wrap(~ scenario, ncol=4)+
+  coord_flip()+
+  scale_y_continuous(trans = "log")
+
+ggsave(paste0("co2_country_", base_temp, ".png"), co2_country, device="png", height = 10, width = 7)
