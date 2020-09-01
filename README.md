@@ -1,6 +1,6 @@
 This repository contains the code to replicate the analysis of the paper 'Latent residential air cooling demand and universal household electrification' by Giacomo Falchetta
 
-Required replication data is found at: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4010319.svg)](https://doi.org/10.5281/zenodo.4010319) 
+Required replication data is found at: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4010319.svg)](https://doi.org/10.5281/zenodo.4010319). The Zenodo archive content must be extracted in the home folder of this repository. 
 
 The code includes:
 
