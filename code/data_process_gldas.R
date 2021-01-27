@@ -1,49 +1,49 @@
-CDDs <- stack(paste0("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/Manuscript/Submission ENB/Revision 1/New data Malcolm/gldas_0p25_deg_cdd_base_T_", base_temp ,"C_1970_2009_mth.nc4"))
+CDDs <- stack(paste0("gldas/gldas_0p25_deg_cdd_base_T_", base_temp ,"C_1970_2009_mth.nc4"))
 
 indices<-rep(rep(1:12,each=1), 480/12)
 
 CDDs<-stackApply(CDDs, indices, fun = mean)
 
-writeRaster(CDDs, "CDDs_2020_global_malcolm.tif", overwrite=T)
+writeRaster(CDDs, "CDDs_2020_global_gldas.tif", overwrite=T)
 
-CDDs <- stack("CDDs_2020_global_malcolm.tif")
+CDDs <- stack("CDDs_2020_global_gldas.tif")
 
 ##
 
-CDDs_wetbulb <- stack(paste0("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/Manuscript/Submission ENB/Revision 1/New data Malcolm/wetbulb/gldas_0p25_deg_wet_bulb_cdd_base_T_", base_temp ,"C_1970_2009_mth.nc4"))
+CDDs_wetbulb <- stack(paste0("gldas/wetbulb/gldas_0p25_deg_wet_bulb_cdd_base_T_", base_temp ,"C_1970_2009_mth.nc4"))
 
 indices<-rep(rep(1:12,each=1), 480/12)
 
 CDDs_wetbulb<-stackApply(CDDs_wetbulb, indices, fun = mean)
 
-writeRaster(CDDs_wetbulb, "CDDs_2020_global_malcolm_wetbulb.tif", overwrite=T)
+writeRaster(CDDs_wetbulb, "CDDs_2020_global_gldas_wetbulb.tif", overwrite=T)
 
-CDDs_wetbulb <- stack("CDDs_2020_global_malcolm_wetbulb.tif")
+CDDs_wetbulb <- stack("CDDs_2020_global_gldas_wetbulb.tif")
 
 
 
 #################
 
 #read el. access
-# noacc18 <- raster('C:/Users/GIACOMO/Google Drive/pop_noaccess (2).tif')
+# noacc18 <- raster('pop_noaccess (2).tif')
 # 
 # noacc18<-aggregate(noacc18, fact=5.565974, fun=sum, na.rm=TRUE)
 # 
-# writeRaster(noacc18, "D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/noacc18.tif", overwrite=T)
+# writeRaster(noacc18, "noacc18.tif", overwrite=T)
 
-noacc18<-raster("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/noacc18.tif")
+noacc18<-raster("noacc18.tif")
 
 noacc18[is.na(noacc18)] <- 0
 
 # read pop
-# pop18 <- raster(' C:/Users/GIACOMO/Google Drive/pop_wp (1).tif')
+# pop18 <- raster(' pop_wp (1).tif')
 # 
 # pop18<-aggregate(pop18, fact=5.565974, fun=sum, na.rm=TRUE)
 # 
-# writeRaster(noacc18, "D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/pop18.tif", overwrite=T)
+# writeRaster(noacc18, "pop18.tif", overwrite=T)
 
 #  
-pop18<-raster("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/pop18.tif")
+pop18<-raster("pop18.tif")
 
 pop18[is.na(pop18)] <- 0
 
@@ -77,14 +77,14 @@ myColorkey <- list(at=my.at, ## where the colors change
                      at=my.at ## where to print labels
                    ))
 
-png("sensitivity_cdds_malcolm/CDD_today_malcolm.png", width=1200, height=1600, res=150)
+png("sensitivity_cdds_gldas/CDD_today_gldas.png", width=1200, height=1600, res=150)
 print(levelplot(overlay_current, xlim=c(-100, 180), ylim=c(-40, 45),
                 main="CDDs in areas without electr. access, base T 26° C, 1970-2000", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
 
 # Calculate relative difference
 CDDs <- stack("CDDs_2020_global.tif")
-CDDs_malcolm <- stack("CDDs_2020_global_malcolm.tif")
+CDDs_gldas <- stack("CDDs_2020_global_gldas.tif")
 
 crs(CDDs) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 crs(noacc18) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
@@ -99,17 +99,17 @@ overlay_current <- overlay(noacc18, CDD_current, fun = function(x, y) {
 overlay_current<-stack(overlay_current)
 
 
-crs(CDDs_malcolm) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+crs(CDDs_gldas) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
-CDDs_malcolm <- projectRaster(CDDs_malcolm, noacc18)
+CDDs_gldas <- projectRaster(CDDs_gldas, noacc18)
 
-overlay_malcolm <- overlay(noacc18, CDDs_malcolm, fun = function(x, y) {
+overlay_gldas <- overlay(noacc18, CDDs_gldas, fun = function(x, y) {
   y[x<100] <- NA
   return(y)
 })
 
 
-CDDs_diff <- stack(overlay_current / overlay_malcolm) 
+CDDs_diff <- stack(overlay_current / overlay_gldas) 
 
 my.at <- c(0.5, 1, 1.5, 2, 2.5, 3, 3.5)
 
@@ -125,7 +125,7 @@ pal[1] <- "#a1ebed"
 pal[2] <- "#f2f5f5"
 mapTheme <- rasterTheme(region = pal)
 
-png("sensitivity_cdds_malcolm/CDD_today_malcolm_reldiff.png", width=1200, height=1600, res=150)
+png("sensitivity_cdds_gldas/CDD_today_gldas_reldiff.png", width=1200, height=1600, res=150)
 print(levelplot(CDDs_diff, xlim=c(-100, 180), ylim=c(-40, 45),
                 main="% change in CDDs, base T 26° C, historical climate", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
@@ -160,14 +160,14 @@ myColorkey <- list(at=my.at, ## where the colors change
                      at=my.at ## where to print labels
                    ))
 
-png("sensitivity_cdds_malcolm/CDD_today_malcolm_wb.png", width=1200, height=1600, res=150)
+png("sensitivity_cdds_gldas/CDD_today_gldas_wb.png", width=1200, height=1600, res=150)
 print(levelplot(overlay_current, xlim=c(-100, 180), ylim=c(-40, 45),
                 main="CDDs wet-bulb in areas without electr. access, base T 26° C, 1970-2000", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
 
 # Calculate relative difference
 CDDs <- stack("CDDs_2020_global.tif")
-CDDs_wetbulb <- stack("CDDs_2020_global_malcolm_wetbulb.tif")
+CDDs_wetbulb <- stack("CDDs_2020_global_gldas_wetbulb.tif")
 
 crs(CDDs) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 crs(noacc18) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
@@ -186,13 +186,13 @@ crs(CDDs_wetbulb) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
 CDDs_wetbulb <- projectRaster(CDDs_wetbulb, noacc18)
 
-overlay_malcolm_wb <- overlay(noacc18, CDDs_wetbulb, fun = function(x, y) {
+overlay_gldas_wb <- overlay(noacc18, CDDs_wetbulb, fun = function(x, y) {
   y[x<100] <- NA
   return(y)
 })
 
 
-CDDs_diff <- stack(overlay_current / overlay_malcolm_wb) 
+CDDs_diff <- stack(overlay_current / overlay_gldas_wb) 
 
 my.at <- c(0.5, 1, 1.5, 2, 2.5, 3, 3.5)
 
@@ -208,7 +208,7 @@ pal[1] <- "#a1ebed"
 pal[2] <- "#f2f5f5"
 mapTheme <- rasterTheme(region = pal)
 
-png("sensitivity_cdds_malcolm/CDD_today_malcolm_reldiff_wetbulb.png", width=1200, height=1600, res=150)
+png("sensitivity_cdds_gldas/CDD_today_gldas_reldiff_wetbulb.png", width=1200, height=1600, res=150)
 print(levelplot(CDDs_diff, xlim=c(-100, 180), ylim=c(-40, 45),
                 main="% change in CDDs (wet-bulb), base T 26° C, historical climate", at=my.at, colorkey=myColorkey,  par.settings = mapTheme, xlab="Longitude", ylab="Latitude", ncol=2) + layer(sp.polygons(bPols)))
 dev.off()
@@ -217,15 +217,15 @@ dev.off()
 # Summarise yearly / monthly CDDs within each country
 
 CDDs<-stack("CDDs_2020_global.tif")
-CDDs_malcolm<-stack("CDDs_2020_global_malcolm.tif")
-CDDs_wetbulb<-stack("CDDs_2020_global_malcolm_wetbulb.tif")
+CDDs_gldas<-stack("CDDs_2020_global_gldas.tif")
+CDDs_wetbulb<-stack("CDDs_2020_global_gldas_wetbulb.tif")
 
-noacc18<-raster("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/noacc18.tif")
+noacc18<-raster("noacc18.tif")
 
 noacc18[is.na(noacc18)] <- 0
 
 crs(CDDs) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-crs(CDDs_malcolm) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+crs(CDDs_gldas) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 crs(CDDs_wetbulb) <- "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 
 CDDs <- projectRaster(CDDs, noacc18)
@@ -236,9 +236,9 @@ overlay <- overlay(noacc18, CDDs, fun = function(x, y) {
 })
 
 
-CDDs_malcolm <- projectRaster(CDDs_malcolm, noacc18)
+CDDs_gldas <- projectRaster(CDDs_gldas, noacc18)
 
-overlay_malcolm <- overlay(noacc18, CDDs_malcolm, fun = function(x, y) {
+overlay_gldas <- overlay(noacc18, CDDs_gldas, fun = function(x, y) {
   y[x<100] <- NA
   return(y)
 })
@@ -246,7 +246,7 @@ overlay_malcolm <- overlay(noacc18, CDDs_malcolm, fun = function(x, y) {
 
 CDDs_wetbulb <- projectRaster(CDDs_wetbulb, noacc18)
 
-overlay_malcolm_wb <- overlay(noacc18, CDDs_wetbulb, fun = function(x, y) {
+overlay_gldas_wb <- overlay(noacc18, CDDs_wetbulb, fun = function(x, y) {
   y[x<100] <- NA
   return(y)
 })
@@ -258,13 +258,13 @@ gadm0<-read_sf("gadm_africa.shp")
 gadm0_CDDs<-exact_extract(overlay, gadm0, fun="sum") %>% gather(key="month", value="value") %>% mutate(source="CDDs_worldclim (1970-2000 avg.)")
 gadm0_CDDs <- bind_cols(gadm0_CDDs, as.data.frame(rep(gadm0$ISO3, 12)))
 
-gadm0_CDDs_malcolm<-exact_extract(overlay_malcolm, gadm0, fun="sum") %>% gather(key="month", value="value") %>% mutate(source="CDDs_GLDAS (1970-2009 avg.)")
-gadm0_CDDs_malcolm <- bind_cols(gadm0_CDDs_malcolm, as.data.frame(rep(gadm0$ISO3, 12)))
+gadm0_CDDs_gldas<-exact_extract(overlay_gldas, gadm0, fun="sum") %>% gather(key="month", value="value") %>% mutate(source="CDDs_GLDAS (1970-2009 avg.)")
+gadm0_CDDs_gldas <- bind_cols(gadm0_CDDs_gldas, as.data.frame(rep(gadm0$ISO3, 12)))
 
-gadm0_CDDs_wb<-exact_extract(overlay_malcolm_wb, gadm0, fun="sum") %>% gather(key="month", value="value") %>% mutate(source="CDDs_wetbulb_GLDAS (1970-2009 avg.)")
+gadm0_CDDs_wb<-exact_extract(overlay_gldas_wb, gadm0, fun="sum") %>% gather(key="month", value="value") %>% mutate(source="CDDs_wetbulb_GLDAS (1970-2009 avg.)")
 gadm0_CDDs_wb <- bind_cols(gadm0_CDDs_wb, as.data.frame(rep(gadm0$ISO3, 12)))
 
-bind <- rbind(gadm0_CDDs, gadm0_CDDs_malcolm, gadm0_CDDs_wb)
+bind <- rbind(gadm0_CDDs, gadm0_CDDs_gldas, gadm0_CDDs_wb)
 
 colnames(bind)[4]<-"ISO3"
 bind$month <- gsub("sum.layer.", "", bind$month)
@@ -322,9 +322,9 @@ ggsave("map_access.png", last_plot(),  device="png", scale=1)
 
 ######
 
-CDDs_245 <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_245_global.tif')
+CDDs_245 <- stack('CDDs_2040_2060_245_global.tif')
 
-CDDs_370 <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_370_global.tif')
+CDDs_370 <- stack('CDDs_2040_2060_370_global.tif')
 
 
 #

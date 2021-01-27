@@ -1,7 +1,7 @@
 # Wrapper for:
-# Latent residential air cooling demand and universal household electrification 
-# Giacomo Falchetta
-# 03/11/2020
+# The role of residential air circulation and cooling demand for electrification planning: implications of climate change over sub-Saharan Africa
+# Giacomo Falchetta, gldas Mistry
+# 27/01/2021
 
 # install.packages(c("tidyverse", "reshape2", "lubridate", "raster", "sf", "exactextractr", "countrycode", "rasterVis", "maps", "mapdata", "maptools", "rgdal", "gglorenz", "fasterize", "viridis", "data.table", "oce", "osc", "lutz", "suncalc", "rstudioapi", "cowplot", "rdhs", "wbstats", "pracma"))
 
@@ -74,8 +74,8 @@ max_hrs_permonth_fan_use = 480
 # process the CDD and noaccess data (to produce variants with different base T)
 source("code/data_process_2.R", echo=T)
 
-# sensitivity analysis: process the CDDs based on Malcolm's data
-#source("code/data_process_malcolm.R", echo=T)
+# sensitivity analysis: process the CDDs based on gldas's data
+#source("code/data_process_gldas.R", echo=T)
 
 # generate Figures 1-2-3
 #source("code/figures123.R", echo=T)
@@ -102,7 +102,7 @@ EER_rural_sens = c(2, 2.9, 2.2)
 
 source("code/sensitivity.R", echo=T)
 
-source("code/sensitivity_malcolm.R", echo=T)
+source("code/sensitivity_gldas.R", echo=T)
 
 source("code/sensitivity_summary_figure.R", echo=T)
 

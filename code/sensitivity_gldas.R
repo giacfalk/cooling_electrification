@@ -7,7 +7,7 @@ for (i in T_base_sens){
   base_temp <- i
   
   # process the CDD and noaccess data (to produce variants with different base T)
-  source("code/data_process_malcolm.R", echo=F)
+  source("code/data_process_gldas.R", echo=F)
   
   # estimate power requirements
   source("code/electricity.R", echo=F)
@@ -30,7 +30,7 @@ for (i in 1:3){
   EER_rural <- EER_rural_sens[i]
   
   # process the CDD and noaccess data (to produce variants with different base T)
-  source("code/data_process_malcolm.R", echo=F)
+  source("code/data_process_gldas.R", echo=F)
   
   # estimate power requirements
   source("code/electricity.R", echo=F)
