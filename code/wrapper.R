@@ -1,11 +1,12 @@
 # Wrapper for:
 # Latent residential air cooling demand and universal household electrification 
 # Giacomo Falchetta
-# 16/07/2020
+# 03/11/2020
 
-# install.packages(c("tidyverse", "reshape2", "lubridate", "raster", "sf", "exactextractr", "countrycode", "rasterVis", "maps", "mapdata", "maptools", "rgdal", "gglorenz", "fasterize", "viridis", "data.table", "oce", "osc", "lutz", "suncalc", "rstudioapi", "cowplot"))
+# install.packages(c("tidyverse", "reshape2", "lubridate", "raster", "sf", "exactextractr", "countrycode", "rasterVis", "maps", "mapdata", "maptools", "rgdal", "gglorenz", "fasterize", "viridis", "data.table", "oce", "osc", "lutz", "suncalc", "rstudioapi", "cowplot", "rdhs", "wbstats", "pracma"))
 
 library(tidyverse)
+library(tidyr)
 library(reshape2)
 library(lubridate)
 library(raster)
@@ -27,8 +28,16 @@ library(lutz)
 library(suncalc)
 library(rstudioapi)
 library(cowplot)
+library(rdhs)
+library(wbstats)
+library(pracma)
 
 setwd('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA')
+
+# DHS API configuration
+
+set_rdhs_config(email = "giacomo.falchetta@feem.it", timeout = 120)
+
 
 # parameters
 
@@ -62,11 +71,11 @@ Fan_power = 70
 min_hrs_permonth_fan_use = 0
 max_hrs_permonth_fan_use = 480
 
-# process the CDD and noaccess data (default base T)
-source("code/data_process.R", echo=T)
-
 # process the CDD and noaccess data (to produce variants with different base T)
-#source("code/data_process_2.R", echo=T)
+source("code/data_process_2.R", echo=T)
+
+# sensitivity analysis: process the CDDs based on Malcolm's data
+#source("code/data_process_malcolm.R", echo=T)
 
 # generate Figures 1-2-3
 #source("code/figures123.R", echo=T)
@@ -75,10 +84,13 @@ source("code/data_process.R", echo=T)
 source("code/window_heat_gain.R", echo=T)
 
 # estimate power requirements
-source("code/electricity.R", echo=T)
+#source("code/electricity.R", echo=T)
+
+# estimate power requirements (also with empirical demand)
+source("code/electricity_new_ssp.R", echo=T)
 
 # estimate co2 emissions
-source("code/emissions.R", echo=T)
+#source("code/emissions.R", echo=T)
 
 # Supply-side electrification analysis for SSA
 source("code/electrification_analysis.R", echo=T)
@@ -89,6 +101,9 @@ EER_urban_sens = c(2.2, 3.2, 2.9)
 EER_rural_sens = c(2, 2.9, 2.2)
 
 source("code/sensitivity.R", echo=T)
+
+source("code/sensitivity_malcolm.R", echo=T)
+
 source("code/sensitivity_summary_figure.R", echo=T)
 
 

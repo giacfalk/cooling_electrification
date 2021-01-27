@@ -12,7 +12,9 @@ kwh_sens$Scenario <- ifelse(kwh_sens$.id==4, "28", kwh_sens$Scenario)
 
 levels(kwh_sens$id) <- c("Baseline", "SSP245", "SSP370")
 
-levels(kwh_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+levels(kwh_sens$scenario) <- c("S0", "S1", "S2", "S3", "S4")
+
+kwh_sens <- filter(kwh_sens, scenario!="S3", scenario!="S4")
 
 a =ggplot(kwh_sens)+
   theme_classic()+
@@ -21,7 +23,7 @@ a =ggplot(kwh_sens)+
   scale_fill_brewer(name="Tbase", palette = "Set1")+
   ylab('TWh/year')+
   xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)+
+  facet_wrap(~ scenario)+
   ggtitle("Constant EERs: 2.9 urban, 2.2 rural")
 
 kwh_sens <- list.files(path = 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/sensitivity_kwh/eer', full.names = T)
@@ -35,21 +37,21 @@ kwh_sens$Scenario <- ifelse(kwh_sens$.id==3, "3.2U, 2.9R", kwh_sens$Scenario)
 
 levels(kwh_sens$id) <- c("Baseline", "SSP245", "SSP370")
 
-levels(kwh_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+levels(kwh_sens$scenario) <- c("S0", "S1", "S2", "S3", "S4")
 
+kwh_sens <- filter(kwh_sens, scenario!="S3", scenario!="S4")
 
 b =ggplot(kwh_sens)+
   theme_classic()+
   geom_bar(data = kwh_sens, aes(x = id, y = twh, fill=Scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
-  scale_fill_brewer(name="EERs", palette = "Set1")+
+  scale_fill_brewer(name="EERs", palette = "Set2")+
   ylab('TWh/year')+
 xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)+
+  facet_wrap(~ scenario)+
   ggtitle("Constant Tbase: 26 C°")
 
 ##
-
 
 co2_sens <- list.files(path = 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/sensitivity_co2/tbase', full.names = T)
 co2_sens <- lapply(co2_sens, read.csv)
@@ -63,7 +65,9 @@ co2_sens$Scenario <- ifelse(co2_sens$.id==4, "28", co2_sens$Scenario)
 
 levels(co2_sens$id) <- c("Baseline", "SSP245", "SSP370")
 
-levels(co2_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+levels(co2_sens$scenario) <- c("S0", "S1", "S2", "S3", "S4")
+
+co2_sens <- filter(co2_sens, scenario!="S3", scenario!="S4")
 
 c =ggplot(co2_sens)+
   theme_classic()+
@@ -72,9 +76,8 @@ c =ggplot(co2_sens)+
   scale_fill_brewer(name="Tbase", palette = "Set1")+
   ylab("Mt CO2/year")+
   xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)+
+  facet_wrap(~ scenario)+
   ggtitle("Constant EERs: 2.9 urban, 2.2 rural")
-
 
 co2_sens <- list.files(path = 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/sensitivity_co2/eer', full.names = T)
 co2_sens <- lapply(co2_sens, read.csv)
@@ -87,26 +90,27 @@ co2_sens$Scenario <- ifelse(co2_sens$.id==3, "3.2U, 2.9R", co2_sens$Scenario)
 
 levels(co2_sens$id) <- c("Baseline", "SSP245", "SSP370")
 
-levels(co2_sens$scenario) <- c("Tech. adopt. S1", "Tech. adopt. S2", "Tech. adopt. S3", "Tech. adopt. S4")
+levels(co2_sens$scenario) <- c("S0", "S1", "S2", "S3", "S4")
+
+co2_sens <- filter(co2_sens, scenario!="S3", scenario!="S4")
 
 d =ggplot(co2_sens)+
   theme_classic()+
   geom_bar(data = co2_sens, aes(x = id, y = co2, fill=Scenario), stat = "sum", position = "dodge", show.legend=c(size=FALSE)) +
   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
-  scale_fill_brewer(name="EERs", palette = "Set1")+
+  scale_fill_brewer(name="EERs", palette = "Set2")+
   ylab("Mt CO2/year")+
   xlab("Warming scenario")+
-  facet_wrap(~ scenario, ncol=2)+
+  facet_wrap(~ scenario)+
   ggtitle("Constant Tbase: 26 C°")
+
 
 cowplot::plot_grid(a, b, ncol = 1, labels = "AUTO")
 ggsave("kwh.png", last_plot(), scale=1.5, height = 5, width = 4)
 
 cowplot::plot_grid(c, d, ncol = 1, labels = "AUTO")
 ggsave("co2.png", last_plot(), scale=1.5, height = 5, width = 4)
-
-
-
+  
 ###
 
 all_kwh <- read.csv('power_consumpion_26_2.9_2.2.csv')

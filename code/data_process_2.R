@@ -99,20 +99,24 @@ myColorkey <- list(at=my.at, ## where the colors change
 
 names(CDDs) <- month.abb
 
-png("CDD_today.png", width=1600, height=800, res=150)
-print(levelplot(CDDs,
-                 main="CDDs, base T 26Â° C, 1970-2000", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude") + layer(sp.polygons(bPols)))
- dev.off()
+# png("CDD_today.png", width=1600, height=800, res=150)
+# print(levelplot(CDDs,
+#                  main="CDDs, base T 26° C, 1970-2000", at=my.at, colorkey=myColorkey,  par.settings = YlOrRdTheme, xlab="Longitude", ylab="Latitude") + layer(sp.polygons(bPols)))
+#  dev.off()
 
 #calculate future CDDs based on CMIP6
 
-max245<-stack("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmax_CNRM-ESM2-1_ssp245_2041-2060.tif")
+list_gcms <- c("BCC-CSM2-MR", "CNRM-CM6-1", "CNRM-ESM2-1", "CanESM5", "IPSL-CM6A-LR", "MIROC-ES2L", "MIROC6", "MRI-ESM2-0") 
+ 
+for (gcm in list_gcms){
+ 
+max245<-stack(paste0("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmax_", gcm, "_ssp245_2041-2060.tif"))
 #
-min245<-stack("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmin_CNRM-ESM2-1_ssp245_2041-2060.tif")
+min245<-stack(paste0("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmin_", gcm, "_ssp245_2041-2060.tif"))
 #
-max370<-stack("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmax_CNRM-ESM2-1_ssp370_2041-2060.tif")
+max370<-stack(paste0("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmax_", gcm, "_ssp370_2041-2060.tif"))
 #
-min370<-stack("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmin_CNRM-ESM2-1_ssp370_2041-2060.tif")
+min370<-stack(paste0("D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/wc2.1_5m_tmin_", gcm, "_ssp370_2041-2060.tif"))
 #
 avg370<-stack(lapply(1:12,
 function(i){ (max370[[i]]+min370[[i]])/2
@@ -221,7 +225,7 @@ for (i in 1:12){
 CDDs_245 <- stack(CDDs_245)
 #
 setwd('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA')
-writeRaster(CDDs_245, "CDDs_2040_2060_245_global.tif", overwrite=T)
+writeRaster(CDDs_245, paste0("CDDs_2040_2060_245_global_", gcm, ".tif"), overwrite=T)
 #
 #
 #
@@ -242,7 +246,55 @@ for (i in 1:12){
 CDDs_370 <- stack(CDDs_370)
 #
 setwd('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA')
-writeRaster(CDDs_370, "CDDs_2040_2060_370_global.tif", overwrite=T)
+writeRaster(CDDs_370, paste0("CDDs_2040_2060_370_global_", gcm, ".tif"), overwrite=T)
+}
+
+# Calculate multi-model median
+
+list_245 <- list.files(path = "D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA", full.names = F, pattern = "CDDs_2040_2060_245_global_")
+  
+list_370 <- list.files(path = "D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA", full.names = F, pattern = "CDDs_2040_2060_370_global_")
+
+temp_r <- list()
+temp_rs = list()
+
+for (month in 1:12){
+for (j in 1:length(list_245)){
+  
+  print(paste(j, month))
+  
+temp_r[[j]] <-  stack(list_245[j])[[month]]
+
+}
+  temp_rs[[month]] <- stack(temp_r)
+  temp_rs[[month]] <- calc(temp_rs[[month]], median)
+  
+  }
+
+temp_rs_s <- stack(temp_rs)
+
+writeRaster(temp_rs_s, 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_245_global.tif', overwrite=T)
+
+temp_r <- list()
+temp_rs = list()
+
+for (month in 1:12){
+for (j in 1:length(list_370)){
+  
+  print(paste(j, month))
+  
+  temp_r[[j]] <-  stack(list_370[j])[[month]]
+  
+}
+temp_rs[[month]] <- stack(temp_r)
+temp_rs[[month]] <- calc(temp_rs[[month]], median)
+
+}
+
+temp_rs_s <- stack(temp_rs)
+writeRaster(temp_rs_s, 'D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_370_global.tif', overwrite=T)
+
+# Import 
 
 CDDs_370 <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_370_global.tif')
 CDDs_245 <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/CDDs_2040_2060_245_global.tif')

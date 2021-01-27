@@ -1,0 +1,79 @@
+Country,DHScode,FIPScode,ISOcode,SurveyYear,SurveyType,HCWIXQP2ND,HCWIXQP4TH,HCWIXQPHGH,HCWIXQPLOW,HCWIXQPMID
+Afghanistan,AF,AF,,2015,DHS,Yes,Yes,Yes,Yes,Yes
+Albania,AL,AL,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Armenia,AM,AM,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Angola,AO,AO,,2015,DHS,Yes,Yes,Yes,Yes,Yes
+Azerbaijan,AZ,AJ,,2006,DHS,Yes,Yes,Yes,Yes,Yes
+Bangladesh,BD,BG,,2014,DHS,Yes,Yes,Yes,Yes,Yes
+Burkina Faso,BF,UV,,2017,MIS,Yes,Yes,Yes,Yes,Yes
+Benin,BJ,BN,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Bolivia,BO,BL,,2008,DHS,Yes,Yes,Yes,Yes,Yes
+Brazil,BR,BR,,1996,DHS,Yes,Yes,Yes,Yes,Yes
+Burundi,BU,BY,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Congo Democratic Republic,CD,CG,,2013,DHS,Yes,Yes,Yes,Yes,Yes
+Central African Republic,CF,CT,,1994,DHS,Yes,Yes,Yes,Yes,Yes
+Congo,CG,CF,,2011,DHS,Yes,Yes,Yes,Yes,Yes
+Cote d'Ivoire,CI,IV,,2012,DHS,Yes,Yes,Yes,Yes,Yes
+Cameroon,CM,CM,,2018,DHS,Yes,Yes,Yes,Yes,Yes
+Colombia,CO,CO,,2015,DHS,Yes,Yes,Yes,Yes,Yes
+Dominican Republic,DR,DR,,2013,DHS,Yes,Yes,Yes,Yes,Yes
+Egypt,EG,EG,,2014,DHS,Yes,Yes,Yes,Yes,Yes
+Eritrea,ER,ER,,2002,DHS,Yes,Yes,Yes,Yes,Yes
+Ethiopia,ET,ET,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Gabon,GA,GB,,2012,DHS,Yes,Yes,Yes,Yes,Yes
+Ghana,GH,GH,,2016,MIS,Yes,Yes,Yes,Yes,Yes
+Gambia,GM,GA,,2013,DHS,Yes,Yes,Yes,Yes,Yes
+Guinea,GN,GV,,2018,DHS,Yes,Yes,Yes,Yes,Yes
+Guatemala,GU,GT,,2015,DHS,Yes,Yes,Yes,Yes,Yes
+Guyana,GY,GY,,2009,DHS,Yes,Yes,Yes,Yes,Yes
+Honduras,HN,HO,,2011,DHS,Yes,Yes,Yes,Yes,Yes
+Haiti,HT,HA,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+India,IA,IN,,2015,DHS,Yes,Yes,Yes,Yes,Yes
+Indonesia,ID,ID,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Jordan,JO,JO,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Kenya,KE,KE,,2015,MIS,Yes,Yes,Yes,Yes,Yes
+Cambodia,KH,CB,,2014,DHS,Yes,Yes,Yes,Yes,Yes
+Kazakhstan,KK,KZ,,1999,DHS,Yes,Yes,Yes,Yes,Yes
+Comoros,KM,CN,,2012,DHS,Yes,Yes,Yes,Yes,Yes
+Kyrgyz Republic,KY,KG,,2012,DHS,Yes,Yes,Yes,Yes,Yes
+Liberia,LB,LI,,2016,MIS,Yes,Yes,Yes,Yes,Yes
+Lesotho,LS,LT,,2014,DHS,Yes,Yes,Yes,Yes,Yes
+Morocco,MA,MO,,2003,DHS,Yes,Yes,Yes,Yes,Yes
+Moldova,MB,MD,,2005,DHS,Yes,Yes,Yes,Yes,Yes
+Madagascar,MD,MA,,2016,MIS,Yes,Yes,Yes,Yes,Yes
+Mali,ML,ML,,2018,DHS,Yes,Yes,Yes,Yes,Yes
+Myanmar,MM,BM,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Mauritania,MR,MR,,2000,DHS,Yes,Yes,Yes,Yes,Yes
+Maldives,MV,MV,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Malawi,MW,MI,,2017,MIS,Yes,Yes,Yes,Yes,Yes
+Mozambique,MZ,MZ,,2018,MIS,Yes,Yes,Yes,Yes,Yes
+Nicaragua,NC,NU,,2001,DHS,Yes,Yes,Yes,Yes,Yes
+Nigeria,NG,NI,,2018,DHS,Yes,Yes,Yes,Yes,Yes
+Niger,NI,NG,,2012,DHS,Yes,Yes,Yes,Yes,Yes
+Namibia,NM,WA,,2013,DHS,Yes,Yes,Yes,Yes,Yes
+Nepal,NP,NP,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Peru,PE,PE,,2012,DHS,Yes,Yes,Yes,Yes,Yes
+Papua New Guinea,PG,PE,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Philippines,PH,RP,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Pakistan,PK,PK,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Paraguay,PY,PA,,1990,DHS,Yes,Yes,Yes,Yes,Yes
+Rwanda,RW,RW,,2017,MIS,Yes,Yes,Yes,Yes,Yes
+Sierra Leone,SL,SL,,2013,DHS,Yes,Yes,Yes,Yes,Yes
+Senegal,SN,SG,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Sao Tome and Principe,ST,TP,,2008,DHS,Yes,Yes,Yes,Yes,Yes
+Eswatini,SZ,WZ,,2006,DHS,Yes,Yes,Yes,Yes,Yes
+Chad,TD,CD,,2014,DHS,Yes,Yes,Yes,Yes,Yes
+Togo,TG,TO,,2017,MIS,Yes,Yes,Yes,Yes,Yes
+Tajikistan,TJ,TI,,2017,DHS,Yes,Yes,Yes,Yes,Yes
+Timor-Leste,TL,TT,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Turkmenistan,TM,TX,,2000,DHS,Yes,Yes,Yes,Yes,Yes
+Turkey,TR,TU,,2003,DHS,Yes,Yes,Yes,Yes,Yes
+Tanzania,TZ,TZ,,2017,MIS,Yes,Yes,Yes,Yes,Yes
+Ukraine,UA,UP,,2007,DHS,Yes,Yes,Yes,Yes,Yes
+Uganda,UG,UG,,2018,MIS,Yes,Yes,Yes,Yes,Yes
+Uzbekistan,UZ,UZ,,1996,DHS,Yes,Yes,Yes,Yes,Yes
+Vietnam,VN,VM,,2005,AIS,Yes,Yes,Yes,Yes,Yes
+Yemen,YE,YM,,2013,DHS,Yes,Yes,Yes,Yes,Yes
+South Africa,ZA,SF,,2016,DHS,Yes,Yes,Yes,Yes,Yes
+Zambia,ZM,ZA,,2018,DHS,Yes,Yes,Yes,Yes,Yes
+Zimbabwe,ZW,ZI,,2015,DHS,Yes,Yes,Yes,Yes,Yes

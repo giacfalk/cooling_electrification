@@ -1,0 +1,65 @@
+      =============== EXPLANATORY_NOTES_SUBNATIONAL.TXT ================
+
+Spatial Data Repository and STATcompiler
+USAID-funded The Demographic and Health Surveys (DHS) Program: Produced by ICF International 
+
+This spatial Demographic and Health Surveys Program Data Package is made available
+from the Spatial Data Repository and STATcompiler under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. 
+Any rights in individual contents of the database are licensed under the 
+Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+DESCRIPTION: 
+This zip file contains files for viewing The Demographic and Health Surveys Program 
+regions and health related attribute information collected by The DHS Program. 
+The zip folder also contains a field_names.csv file, which contains descriptions
+and additional information for the indicators contained within the geographic files. 
+To learn more about The DHS Program go to:(http://www.dhsprogram.com).
+To download additional data, go to:(http://spatialdata.dhsprogram.com) or (http://www.statcompiler.com).
+
+CITATION:
+Data users should cite the Spatial Data Respository as the source of all derived reports, 
+publications, presentations, or other products. To use the recommended citation, simply 
+replace the date of download.
+
+Spatial Data Repository, The Demographic and Health Surveys Program. ICF International. 
+Available from spatialdata.dhsprogram.com [Accessed Day Month Year].
+
+*********************************NOTE**********************************
+If there is no data available for a selected indicator for the selected
+survey(s), the attribute field will be "null" in geodatabase format or "9999" in shapefile format.
+Please note that survey questionnaires vary by survey type and country, therefore not all 
+indicators are available for all surveys.  Refer to the data_availability.csv file to view 
+whether the indicator(s) selected for this data package are available
+
+Files included in all data packages:
+
+2    	txt-files     	(1. explanatory_notes_subnational file     
+			 2. data_schema_subnational file)
+2    	csv-files    	(Comma Separate Value files: 
+                       		1. data_availability.csv : Displays a matrix chart of data 
+				   available for the indicators and surveys selected during 
+				   the download process
+                      		2. field_names.csv: Indicator decoder table to containing 
+				   titles and indicator definitions for each indicator downloaded 
+				   in the data package)
+
+1	xml-file	(dhs_spatial_data_subnational_metatada file: The metadata file in xml format is
+ 			 	 associated with the shapefile and geodatabase and was developed 
+				 based on ISO 19139 Metadata Implementation Specifications)
+1    	gdb-folder      (sdr_exports.gdb folder: Geodatabase for use in ESRI GIS software only)
+	  OR
+1	shps-folder     (Shapefile data folder containing a shapefile for each survey.  Each
+ 			 	 shapefile is comprised of 7 files:
+				1    dbf-file     (Shapefile data)
+				1    xml-file     (Metadata file stand alone)
+				1    prj-file     (Shapefile data)
+				1    sbn-file     (Shapefile data)
+				1    shp-file     (Shapefile data)
+				1    sbx-file     (Shapefile data)
+				1    shx-file     (Shapefile data))
+
+Those files designated as “Shapefile data” or are for use by a GIS 
+application for display of shapefile data. 
+
+ 
+

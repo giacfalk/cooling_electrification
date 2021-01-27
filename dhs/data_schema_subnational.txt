@@ -1,0 +1,73 @@
+Spatial Data Repository and STATcompiler
+USAID-funded The Demographic and Health Surveys (DHS) Program: Produced by ICF International 
+
+This spatial Demographic and Health Surveys Program Data Package is made available 
+from the Spatial Data Repository and STATcompiler under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. 
+Any rights in individual contents of the database are licensed under the 
+Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+
+*********************************NOTE**********************************
+If there is no data available for a selected indicator for the selected
+survey(s), the attribute field will be "null" in geodatabase format or "9999" in shapefile format.
+Please note that survey questionnaires vary by survey type and country, therefore not all 
+indicators are available for all surveys.  Refer to the data_availability.csv file to view 
+whether the indicator(s) selected for this data package are available
+
+
+SHAPEFILE AND GEODATABASE DATA SCHEMA:
+
+ISO: Two letter ISO country code
+FIPS: Two letter FIPS country code
+DHSCC: Two letter DHS country code
+SVYTYPE: Three letter survey type i.e. DHS, MIS, AIS, SPA, or OTH
+SVYYEAR: Four digit year of the  survey
+CTRYNAMEE: Country Name in English
+CTRYNAMEF: Country Name in French	
+CTRYNAMES: Country Name in Spanish	
+DHSREGEN: DHS Region in English	
+DHSREGFR: DHS Region in French	
+DHSREGSP: DHS Region in Spanish	
+SVYID: Three digit survey identification code
+REG_ID: Unique region identifier created by concatenating DHSCTRYCODE & SVYTYPE & SVYYEAR & 
+	CHAR_CAT_ID & CHAR_ID.  
+	NOTE: If the area is excluded from the survey, this field will be "Excluded".
+SVY_MAP: Lists whether the survey is mappable at the sub-national level
+	NOTE: If this field is no, the geometry for the survey will be at the national level
+MULTLEVEL: Lists whether the survey is representative at multiple sub-national levels.  
+	NOTE: Urban/Rural status is considered to be a residence classification, not a sub-national 
+	      classification
+LEVELRNK: Ranks the sub-national level of representativeness.  Level 1 rank is the default display 
+	level for STATcompiler.com.  Level 2 and 3 ranks are alternate levels of sub-national representation.
+REGVAR:	The variable name within the household recode file that aligns to the subnational level of 
+	representation
+	NOTE: This field will be "NULL" if the sub-national level does not align with a variable within 
+	      the recode file
+REGCODE: The variable code within the household recode file that aligns to the subnational level of 
+	representation
+	NOTE: This field will be "9999" if the sub-national area does not align with a variable within 
+	      the recode file
+REGNAME: The region name within the household recode file that aligns to the subnational level of 
+	representation 
+	NOTE: This field will be "NULL" if the sub-national level does not align with a variable within 
+ 	      the recode file
+OTHREGVAR: The variable name within the household recode file that lists another sub-national level 
+	of representativeness that may be formed by aggregating the areas 
+	NOTE:  This field will be "NULL" if the sub-national areas cannot be aggregated to align with 
+	       another sub-national level of representation for the survey
+OTHREGCO: The variable code within the household recode file that aligns to another sub-national level 
+	of representativeness that may be formed by aggregating the areas
+	NOTE:  This field will be "9999" if the sub-national area cannot be aggregated to align with 
+	       another sub-national level of representation for the survey
+OTHREGNA: The region name within the household recode file that aligns to another sub-national level 
+	of representativeness that may be formed by aggregating the areas
+	NOTE:  This field will be "NULL" if the sub-national area cannot be aggregated to align with 
+	       another sub-national level of representation for the survey
+LEVELCO: The administrative description of the regions in this shapefile.  Admin1, Admin2, 
+	Admin1 and Capital City, Groups of Admin1, Groups of Admin2, Ecological Regions, 
+	Natural Regions, or Other
+LEVELNA: The country specific name for the level of administrative representativeness (i.e. zone, 
+	province, district, etc.)
+REPALLIND: Lists whether the level of regions in this file is representative for all of the 
+	survey indicators
+REGNOTES: Explanatory notes on the region and how it has changed over time
+SVYNOTES: Explanatory notes on all the sub-national boundaries of representativeness for the survey

@@ -1,0 +1,12 @@
+http://www.marmottenergies.com/much-sun-heat-house/
+
+heating_loss_factor_rural <- f(insulation, deltaT)
+
+The power being transmitted through the windows (kW)
+The energy transmitted through the windows (kWh)
+
+Bringing T to significantly lower Tbase does not change drastically the initial energy consumption, because the time from T to Tbase is generally quite short.
+
+The question is how to "endogenize" the Tbase in the "keep cool" stage, because so far that stage here is independent of T and Tbase. 
+
+The power consumption of an AC depends on the heat transferred from windows, which in its turn depends on the difference of outside temperature and thermostat setpoints, the area of the windows, and the air gap between two glasses.

@@ -62,7 +62,7 @@ mg_emissions = 339.7385
 iea_efs<- read.csv('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Latent demand air cooling/cooling_electricity_SSA/energy/emission_factors_iea.csv')
 
 # Merge with dataframe
-world <- merge(world, iea_efs, by.x="GID_0", by.y="ï..COUNTRY", all.x=T)
+world <- merge(world, iea_efs, by.x="ISO3", by.y="ï..COUNTRY", all.x=T)
 
 # For countries with missing IEA data, use EIA data on power mix and assume standard 
 # emission factors to estimate total ef
@@ -101,9 +101,17 @@ ef_diesel_200kw <-0.730
 ef_diesel_2mw <-0.587
 ef_nuclear <- 0
 
-world_bk <- read_sf('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/CLEXREL/Data/gadm36_levels_shp/gadm36_0.shp')
-world_bk <- dplyr::select(world_bk, GID_0, geometry)
-world <- merge(world, world_bk, by="GID_0")
+gadm0 <- read_sf('gadm_africa.shp')
+ext <- extent(gadm0)
+boundaries <- map('world', fill=TRUE,
+                  xlim=ext[1:2], ylim=ext[3:4],
+                  plot=FALSE)
+
+world_bk <- st_as_sf(boundaries) %>% rename(geometry=geom)
+world_bk$id = 1:nrow(world_bk)
+world_bk$ISO3 = countrycode(world_bk$ID, "country.name", "iso3c")
+world_bk <- dplyr::select(world_bk, ISO3, geometry)
+world <- merge(world, world_bk, by="ISO3")
 world <- st_as_sf(world)
 
 # extract country-level share of people gaining through grid and through decentralised
@@ -115,10 +123,10 @@ world$share_mg = world$through_mg/(world$through_grid + world$through_mg)
 world$geometry=NULL
 power2$ISO3 = countrycode(power2$Country, "country.name", "iso3c")
 
-countries = merge(world, power2, by.x="GID_0", by.y="ISO3", all.x=T)
+countries = merge(world, power2, by.x="ISO3", by.y="ISO3", all.x=T)
 
 # calculate emission factor / kwh by country
-countries = group_by(countries, GID_0) %>% mutate(ef = (share_res * ef_res + share_fossil * mean(c(ef_coal,  ef_oil, ef_gas)) + share_biomass * ef_waste + share_nuclear * ef_nuclear)*share_grid + mg_emissions*share_mg) %>% ungroup()
+countries = group_by(countries, ISO3) %>% mutate(ef = (share_res * ef_res + share_fossil * mean(c(ef_coal,  ef_oil, ef_gas)) + share_biomass * ef_waste + share_nuclear * ef_nuclear)*share_grid + mg_emissions*share_mg) %>% ungroup()
 
 # for each country, multiply power requirement by emission factor
 countries$ef = countries$ef * 100
@@ -135,30 +143,34 @@ write.csv(summary_co2, paste0("summary_co2_emissions_", base_temp, "_", EER_urba
 
 world_plot = countries %>% group_by(id, scenario, continent) %>% mutate(co2=sum(co2, na.rm = T))
 
+world_plot <- filter(world_plot, scenario!="kwh_S3" & scenario!="kwh_S4")
+
 # Plot results
 co2_region = ggplot() +
   theme_classic()+
-  geom_bar(data = world_plot[which(world_plot$co2>1000000000),], aes(x = continent , y = co2/1000000000000, fill=id), stat="sum", position = "dodge", show.legend=c(size=FALSE)) +
+  geom_bar(data = world_plot, aes(x = continent , y = co2/1000000000000, fill=id), stat="sum", position = "dodge", show.legend=c(size=FALSE)) +
   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
   scale_fill_brewer(name="Scenario", palette = "Set1")+
   ylab("Potential emissions for air cooling \nfrom households without electricty")+
   xlab("Region")+
   ggtitle("Yearly CO2 emissions (Mt CO2)")+
-  facet_wrap(~ scenario, ncol=2)
+  facet_wrap(~ scenario)
 
 ggsave(paste0("co2_region_", base_temp, ".png"), co2_region, device="png", height = 6, scale=0.8)
 
 write.csv(world_plot, paste0("co2_emissions_", base_temp, "_", EER_urban, "_", EER_rural, ".csv"))
 
+countries <- filter(countries, scenario!="kwh_S3" & scenario!="kwh_S4")
+
 co2_country = ggplot() +
   theme_classic()+
-  geom_bar(data = countries[which(countries$co2>1000000000000),], aes(x = GID_0 , y = co2/1000000000000, fill=id), stat="sum", position = "dodge", show.legend=c(size=FALSE)) +
+  geom_bar(data = countries[which(countries$co2>1000000000000),], aes(x = ISO3 , y = co2/1000000000000, fill=id), stat="sum", position = "dodge", show.legend=c(size=FALSE)) +
   theme(axis.text.x = element_text(angle = 90, size=8), plot.title = element_text(hjust = 0.5))+
   scale_fill_brewer(name="Scenario", palette = "Set1")+
   ylab("Yearly CO2 emissions (Mt CO2)")+
   xlab("Country")+
   ggtitle("Top countries by potential cooling emissions \nfrom households without electricty")+
-  facet_wrap(~ scenario, ncol=4)+
+  facet_wrap(~ scenario)+
   coord_flip()+
   scale_y_continuous(trans = "log")
 

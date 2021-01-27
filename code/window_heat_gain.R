@@ -9,7 +9,7 @@ sol_rad <- stack('D:/OneDrive - FONDAZIONE ENI ENRICO MATTEI/Current papers/Late
 # 
 # times <- as.POSIXct(seq(ISOdate(2019,1,1, tz="UTC"), by = "1 hour", length.out = 8760))
 # 
-# times <- times[grepl("16:00:00", times) & grepl("-15", times)]
+# times <- times[grepl("10:00:00", times) & grepl("-15", times)]
 # azimuth_list <- list()
 # 
 # for (i in 1:length(times)){
